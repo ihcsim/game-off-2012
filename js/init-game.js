@@ -13,10 +13,13 @@ $(document).ready(function(){
                          window.msRequestAnimationFrame ||
                          function(callback) {
                            window.setTimeout(callback, 1000 / 60);
-                         },
+                         };
+     
      imgSprite = new Image();
      imgSprite.src = "images/sprite.png";
      imgSprite.addEventListener("load", initGame, false);
+     
+     player = new Player(stageCanvasCtx, imgSprite);
 
   function initGame(){
     begin();
@@ -45,16 +48,17 @@ $(document).ready(function(){
   
   function update(){
     clearCanvas(stageCanvasCtx);
+    player.updatePos();
   }
   
   function clearCanvas(ctx) {
     var startX = 0;
     var startY = 0;
-    ctx.clearRect(startX, startY, canvaxWidth, canvasHeight);
+    ctx.clearRect(startX, startY, stageWidth, stageHeight);
   }
   
   function draw(){
-    
+    player.draw();
   }
   
   function randomRange (min, max) {
