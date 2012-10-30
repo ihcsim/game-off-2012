@@ -22,6 +22,12 @@ $(document).ready(function(){
      player = new Player(stageCanvasCtx, imgSprite);
 
   function initGame(){
+    
+    document.addEventListener("keydown", function(e) {checkKey(e, true);}, false);
+    document.addEventListener("keyup", function(e) {checkKey(e, false);}, false);
+   
+    
+    
     begin();
   }
   
@@ -61,7 +67,47 @@ $(document).ready(function(){
     player.draw();
   }
   
+  function checkKey(e, value) {
+    var keyID = e.keyCode || e.which;
+    if (keyID === 38) { // Up arrow
+        player.isUpKey = value;
+        e.preventDefault();
+    }
+    if (keyID === 39) { // Right arrow
+        player.isRightKey = value;
+        e.preventDefault();
+    }
+    if (keyID === 40) { // Down arrow
+        player.isDownKey = value;
+        e.preventDefault();
+    }
+    if (keyID === 37) { // Left arrow
+        player.isLeftKey = value;
+        e.preventDefault();
+    }
+    if (keyID === 32) { // Spacebar
+        player.isSpacebar = value;
+        e.preventDefault();
+    }
+  }
+
+  function outOfBounds(a, x, y) {
+    var newBottomY = y + a.height,
+        newTopY = y,
+        newRightX = x + a.width,
+        newLeftX = x,
+        treeLineTop = 5,
+        treeLineBottom = 570,
+        treeLineRight = 750,
+        treeLineLeft = 65;
+    return newBottomY > treeLineBottom ||
+        newTopY < treeLineTop ||
+        newRightX > treeLineRight ||
+        newLeftX < treeLineLeft;
+  }
+  
+  
   function randomRange (min, max) {
     return Math.floor(Math.random() * (max + 1 - min)) + min;
-}
+  }
 });
