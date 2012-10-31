@@ -1,4 +1,4 @@
-Player = function (stage, imgSprite){
+Player = function (spriteSrc){
   var DEFAULT_SPRITE_POS_X = 0;
   var DEFAULT_SPRITE_POS_Y = 600;
   var DEFAULT_PLAYER_HEIGHT = 54;
@@ -6,6 +6,9 @@ Player = function (stage, imgSprite){
   var DEFAULT_START_POS_X = 400;
   var DEFAULT_START_POS_Y = 300;
   var DEFAULT_MOVEMENT_SPEED = 2; // pixels
+  
+  this.sprite = new Image();
+  this.sprite.src = spriteSrc;
   
   this.srcX = DEFAULT_SPRITE_POS_X;
   this.srcY = DEFAULT_SPRITE_POS_Y;
@@ -16,15 +19,6 @@ Player = function (stage, imgSprite){
   this.centerX = this.posX + (this.width / 2);
   this.centerY = this.posY + (this.height / 2);
   this.speed = DEFAULT_MOVEMENT_SPEED;
-  
-  
-  this.isUpKey = false;
-  this.isRightKey = false;
-  this.isDownKey = false;
-  this.isLeftKey = false;
-  this.isSpacebar = false;
-  this.stage = stage;
-  this.imgSprite = imgSprite;
 };
 
 Player.prototype.Direction = {
