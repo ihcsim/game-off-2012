@@ -22,12 +22,12 @@ $(document).ready(function(){
      player = new Player(stageCanvasCtx, imgSprite);
 
   function initGame(){
-    
-    document.addEventListener("keydown", function(e) {checkKey(e, true);}, false);
-    document.addEventListener("keyup", function(e) {checkKey(e, false);}, false);
-   
-    
-    
+    $(document).keydown(function(e) {
+      checkKey(e, true);
+    });
+    $(document).keyup(function(e) {
+      checkKey(e, false);
+    });
     begin();
   }
   
