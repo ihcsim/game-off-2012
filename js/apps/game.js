@@ -1,33 +1,24 @@
 $(document).ready(function(){
   var stage = $("#stage"),
-      stageCtx = stage[0].getContext("2d"),
       stageCanvas = $("#stage-canvas"),
       stageCanvasCtx = stageCanvas[0].getContext("2d");
-
+  
   var isPlaying = false;
   var requestAnimationFrame = null;
-  
+
   var spriteSrc = "images/sprite.png";
   var player = new Player(stageCanvasCtx, spriteSrc);
-  var newStage = new Stage(spriteSrc, stage);
+  var newStage = new Stage(spriteSrc, stage[0]);
   if(newStage.isReady())
     initGame();
   
   function initGame(){
-    requestAnimationFrame = initRequestAnimationFrame();
+    isPlaying = true;
     initKeyboardEventHandler();
-    begin();
+    requestAnimationFrame = initRequestAnimationFrame();
+    requestAnimationFrame(loop);
   }
 
-  function initKeyboardEventHandler(){
-    $(document).keydown(function(event) {
-      player.executeAction(event);
-    });
-    $(document).keyup(function(e) {
-      player.haltAction(e);
-    });
-  }
-  
   function initRequestAnimationFrame() {
     return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
@@ -39,17 +30,13 @@ $(document).ready(function(){
         };
   }
   
-  function begin(){
-    var imgStartX = 0;
-    var imgStartY = 0;
-    var stageStartX = 0;
-    var stageStartY = 0;
-    var imgWidth = newStage.width;
-    var imgHeight = newStage.height;
-    
-    stageCtx.drawImage(newStage.sprite, imgStartX, imgStartY, imgWidth, imgHeight, stageStartX, stageStartY, newStage.width, newStage.height);
-    isPlaying = true;
-    requestAnimationFrame(loop);
+  function initKeyboardEventHandler(){
+    $(document).keydown(function(event) {
+      player.executeAction(event);
+    });
+    $(document).keyup(function(e) {
+      player.haltAction(e);
+    });
   }
   
   function loop(){
@@ -72,6 +59,7 @@ $(document).ready(function(){
   }
   
   function draw(){
+    newStage.loadBackground();
     player.draw();
   }
 
