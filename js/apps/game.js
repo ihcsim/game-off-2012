@@ -4,13 +4,13 @@ $(document).ready(function(){
       stageCanvas = $("#stage-canvas"),
       stageCanvasCtx = stageCanvas[0].getContext("2d");
   
-      stageWidth = stage[0].width,
-      stageHeight = stage[0].height,
-      isPlaying = false;
+  var stageWidth = stage[0].width;
+  var stageHeight = stage[0].height;
+  var isPlaying = false;
   
   var requestAnimationFrame = null;
   var spriteSrc = "images/sprite.png";
-  
+
   var player = new Player(stageCanvasCtx, spriteSrc);
   var newStage = new Stage(spriteSrc, stage);
   if(newStage.isReady())
@@ -24,7 +24,6 @@ $(document).ready(function(){
 
   function initKeyboardEventHandler(){
     $(document).keydown(function(event) {
-      event.preventDefault();
       player.executeAction(event);
     });
     $(document).keyup(function(e) {
@@ -46,10 +45,10 @@ $(document).ready(function(){
   function begin(){
     var imgStartX = 0;
     var imgStartY = 0;
-    var imgWidth = stageWidth;
-    var imgHeight = stageHeight;
     var stageStartX = 0;
     var stageStartY = 0;
+    var imgWidth = newStage.width;
+    var imgHeight = newStage.height;
     
     stageCtx.drawImage(newStage.sprite, imgStartX, imgStartY, imgWidth, imgHeight, stageStartX, stageStartY, stageWidth, stageHeight);
     isPlaying = true;
