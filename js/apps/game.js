@@ -19,7 +19,7 @@ $(document).ready(function(){
      imgSprite.src = "images/sprite.png";
      imgSprite.addEventListener("load", initGame, false);
      
-     player = new Player(stageCanvasCtx, imgSprite);
+     player = new Player(stageCanvasCtx, "images/sprite.png");
 
   function initGame(){
     $(document).keydown(function(e) {
