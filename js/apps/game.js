@@ -3,14 +3,11 @@ $(document).ready(function(){
       stageCtx = stage[0].getContext("2d"),
       stageCanvas = $("#stage-canvas"),
       stageCanvasCtx = stageCanvas[0].getContext("2d");
-  
-  var stageWidth = stage[0].width;
-  var stageHeight = stage[0].height;
-  var isPlaying = false;
-  
-  var requestAnimationFrame = null;
-  var spriteSrc = "images/sprite.png";
 
+  var isPlaying = false;
+  var requestAnimationFrame = null;
+  
+  var spriteSrc = "images/sprite.png";
   var player = new Player(stageCanvasCtx, spriteSrc);
   var newStage = new Stage(spriteSrc, stage);
   if(newStage.isReady())
@@ -50,7 +47,7 @@ $(document).ready(function(){
     var imgWidth = newStage.width;
     var imgHeight = newStage.height;
     
-    stageCtx.drawImage(newStage.sprite, imgStartX, imgStartY, imgWidth, imgHeight, stageStartX, stageStartY, stageWidth, stageHeight);
+    stageCtx.drawImage(newStage.sprite, imgStartX, imgStartY, imgWidth, imgHeight, stageStartX, stageStartY, newStage.width, newStage.height);
     isPlaying = true;
     requestAnimationFrame(loop);
   }
@@ -71,7 +68,7 @@ $(document).ready(function(){
   function clearCanvas(ctx) {
     var startX = 0;
     var startY = 0;
-    ctx.clearRect(startX, startY, stageWidth, stageHeight);
+    ctx.clearRect(startX, startY, newStage.width, newStage.height);
   }
   
   function draw(){
