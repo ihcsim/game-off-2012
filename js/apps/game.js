@@ -5,15 +5,10 @@ $(document).ready(function(){
       stageCanvasCtx = stageCanvas[0].getContext("2d"),
       stageWidth = stage[0].width,
       stageHeight = stage[0].height,
-      isPlaying = false,
-      requestAnimFrame = window.requestAnimationFrame ||
-                         window.webkitRequestAnimationFrame ||
-                         window.mozRequestAnimationFrame ||
-                         window.oRequestAnimationFrame ||
-                         window.msRequestAnimationFrame ||
-                         function(callback) {
-                           window.setTimeout(callback, 1000 / 60);
-                         };
+      isPlaying = false;
+  
+  
+  var requestAnimationFrame = null;
      
      imgSprite = new Image();
      imgSprite.src = "images/sprite.png";
@@ -28,7 +23,21 @@ $(document).ready(function(){
     $(document).keyup(function(e) {
       checkKey(e, false);
     });
+    
+    requestAnimationFrame = initRequestAnimationFrame();
+    
     begin();
+  }
+  
+  function initRequestAnimationFrame() {
+    return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+          window.setTimeout(callback, 1000 / 60);
+        };
   }
   
   function begin(){
@@ -41,14 +50,14 @@ $(document).ready(function(){
     
     stageCtx.drawImage(imgSprite, imgStartX, imgStartY, imgWidth, imgHeight, stageStartX, stageStartY, stageWidth, stageHeight);
     isPlaying = true;
-    requestAnimFrame(loop);
+    requestAnimationFrame(loop);
   }
   
   function loop(){
     if(isPlaying) {
       update();
       draw();
-      requestAnimFrame(loop);
+      requestAnimationFrame(loop);
     }
   }
   
