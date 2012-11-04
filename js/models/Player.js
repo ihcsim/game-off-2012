@@ -14,8 +14,8 @@ function Player(stage, spriteSrc){
   this.drawX = DEFAULT_START_POS_X;
   this.drawY = DEFAULT_START_POS_Y;
   this.speed = DEFAULT_SPEED;
-  this.centerX = this.drawX + (this.width / 2);
-  this.centerY = this.drawY + (this.height / 2);
+  this.centerX = calculateCenterX();
+  this.centerY = calculateCenterY();
   
   this.isUpKey = false;
   this.isRightKey = false;
@@ -31,6 +31,14 @@ function Player(stage, spriteSrc){
   this.direction = new Direction();
   this.currentDirection = this.direction.SOUTH;
 }
+
+calculateCenterX = function(){
+  return this.drawX + (this.width / 2);
+};
+
+calculateCenterY = function(){
+  return this.drawY + (this.height / 2);
+};
 
 Player.prototype.isFacingNorth = function(){
   return this.currentDirection == this.direction.NORTH;
@@ -72,9 +80,9 @@ Player.prototype.haltAction = function(event){
   this.currentDirection = null;
 };
 
-Player.prototype.updatePos = function () {
-  this.centerX = this.drawX + (this.width / 2);
-  this.centerY = this.drawY + (this.height / 2);
+Player.prototype.updatePosition = function () {
+  this.centerX = calculateCenterX();
+  this.centerY = calculateCenterY();
   this.checkDirection();
 };
 
@@ -83,9 +91,9 @@ Player.prototype.draw = function () {
 };
 
 Player.prototype.checkDirection = function () {
-  var newDrawX = this.drawX,
-      newDrawY = this.drawY,
-      obstacleCollision = false;
+  var newDrawX = this.drawX;
+  var newDrawY = this.drawY;
+  var obstacleCollision = false;
   if (this.isFacingNorth()) {
       newDrawY -= this.speed;
       this.srcX = 35;
