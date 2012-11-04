@@ -68,6 +68,10 @@ Player.prototype.executeAction = function(event){
   }
 };
 
+Player.prototype.haltAction = function(event){
+  this.currentDirection = null;
+};
+
 Player.prototype.updatePos = function () {
   this.centerX = this.drawX + (this.width / 2);
   this.centerY = this.drawY + (this.height / 2);
@@ -95,8 +99,6 @@ Player.prototype.checkDirection = function () {
       newDrawX -= this.speed;
       this.srcX = 70;
   }
-
-  //obstacleCollision = this.checkObstacleCollide(newDrawX, newDrawY);
 
   if (!obstacleCollision && !outOfBounds(this, newDrawX, newDrawY)) {
       this.drawX = newDrawX;
