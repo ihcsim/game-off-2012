@@ -24,7 +24,7 @@ $(document).ready(function(){
       player.executeAction(event);
     });
     $(document).keyup(function(e) {
-      checkKey(e, false);
+      player.haltAction(e);
     });
   }
   
@@ -62,7 +62,7 @@ $(document).ready(function(){
   
   function update(){
     clearCanvas(stageCanvasCtx);
-    player.updatePos();
+    player.updatePosition();
   }
   
   function clearCanvas(ctx) {
@@ -73,30 +73,6 @@ $(document).ready(function(){
   
   function draw(){
     player.draw();
-  }
-  
-  function checkKey(e, value) {
-    var keyID = e.keyCode || e.which;
-    if (keyID === 38) { // Up arrow
-        player.isUpKey = value;
-        e.preventDefault();
-    }
-    if (keyID === 39) { // Right arrow
-        player.isRightKey = value;
-        e.preventDefault();
-    }
-    if (keyID === 40) { // Down arrow
-        player.isDownKey = value;
-        e.preventDefault();
-    }
-    if (keyID === 37) { // Left arrow
-        player.isLeftKey = value;
-        e.preventDefault();
-    }
-    if (keyID === 32) { // Spacebar
-        player.isSpacebar = value;
-        e.preventDefault();
-    }
   }
 
   function outOfBounds(a, x, y) {
