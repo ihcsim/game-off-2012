@@ -14,8 +14,6 @@ function Player(stage, spriteSrc){
   this.drawX = DEFAULT_START_POS_X;
   this.drawY = DEFAULT_START_POS_Y;
   this.speed = DEFAULT_SPEED;
-  this.centerX = calculateCenterX();
-  this.centerY = calculateCenterY();
   
   this.isUpKey = false;
   this.isRightKey = false;
@@ -30,89 +28,91 @@ function Player(stage, spriteSrc){
   
   this.direction = new Direction();
   this.currentDirection = this.direction.SOUTH;
+  
+  this.calculateCenterX = function(){
+    return this.drawX + (this.width / 2);
+  };
+  this.centerX = this.calculateCenterX();
+
+  this.calculateCenterY = function(){
+    return this.drawY + (this.height / 2);
+  };
+  this.centerY = this.calculateCenterY();
+  
+  this.isFacingNorth = function(){
+    return this.currentDirection == this.direction.NORTH;
+  };
+
+  this.isFacingSouth = function(){
+    return this.currentDirection == this.direction.SOUTH;
+  };
+
+  this.isFacingEast = function(){
+    return this.currentDirection == this.direction.EAST;
+  };
+
+  this.isFacingWest = function(){
+    return this.currentDirection == this.direction.WEST;
+  };
+
+  this.executeAction = function(event){
+    var keyID = event.keyCode || event.which;
+    if(keyID == 38) {
+      this.currentDirection = this.direction.NORTH;
+      event.preventDefault();
+    }
+    else if(keyID == 40) {
+      this.currentDirection = this.direction.SOUTH;
+      event.preventDefault();
+    }
+    else if(keyID == 39) {
+      this.currentDirection = this.direction.EAST;
+      event.preventDefault();
+    }
+    else if(keyID == 37) {
+      this.currentDirection = this.direction.WEST;
+      event.preventDefault();
+    }
+  };
+
+  this.haltAction = function(event){
+    this.currentDirection = null;
+  };
+
+  this.updatePosition = function () {
+    this.centerX = this.calculateCenterX();
+    this.centerY = this.calculateCenterY();
+    this.checkDirection();
+  };
+
+  this.draw = function () {
+    this.stage.drawImage(this.sprite, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.width, this.height);
+  };
+
+  this.checkDirection = function () {
+    var newDrawX = this.drawX;
+    var newDrawY = this.drawY;
+    var obstacleCollision = false;
+    if (this.isFacingNorth()) {
+        newDrawY -= this.speed;
+        this.srcX = 35;
+    } else if (this.isFacingSouth()) {
+        newDrawY += this.speed;
+        this.srcX = 0;
+    } else if (this.isFacingEast()) {
+        newDrawX += this.speed;
+        this.srcX = 105;
+    } else if (this.isFacingWest()) {
+        newDrawX -= this.speed;
+        this.srcX = 70;
+    }
+
+    if (!obstacleCollision && !outOfBounds(this, newDrawX, newDrawY)) {
+        this.drawX = newDrawX;
+        this.drawY = newDrawY;
+    }
+  };
 }
-
-calculateCenterX = function(){
-  return this.drawX + (this.width / 2);
-};
-
-calculateCenterY = function(){
-  return this.drawY + (this.height / 2);
-};
-
-Player.prototype.isFacingNorth = function(){
-  return this.currentDirection == this.direction.NORTH;
-};
-
-Player.prototype.isFacingSouth = function(){
-  return this.currentDirection == this.direction.SOUTH;
-};
-
-Player.prototype.isFacingEast = function(){
-  return this.currentDirection == this.direction.EAST;
-};
-
-Player.prototype.isFacingWest = function(){
-  return this.currentDirection == this.direction.WEST;
-};
-
-Player.prototype.executeAction = function(event){
-  var keyID = event.keyCode || event.which;
-  if(keyID == 38) {
-    this.currentDirection = this.direction.NORTH;
-    event.preventDefault();
-  }
-  else if(keyID == 40) {
-    this.currentDirection = this.direction.SOUTH;
-    event.preventDefault();
-  }
-  else if(keyID == 39) {
-    this.currentDirection = this.direction.EAST;
-    event.preventDefault();
-  }
-  else if(keyID == 37) {
-    this.currentDirection = this.direction.WEST;
-    event.preventDefault();
-  }
-};
-
-Player.prototype.haltAction = function(event){
-  this.currentDirection = null;
-};
-
-Player.prototype.updatePosition = function () {
-  this.centerX = calculateCenterX();
-  this.centerY = calculateCenterY();
-  this.checkDirection();
-};
-
-Player.prototype.draw = function () {
-  this.stage.drawImage(this.sprite, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.width, this.height);
-};
-
-Player.prototype.checkDirection = function () {
-  var newDrawX = this.drawX;
-  var newDrawY = this.drawY;
-  var obstacleCollision = false;
-  if (this.isFacingNorth()) {
-      newDrawY -= this.speed;
-      this.srcX = 35;
-  } else if (this.isFacingSouth()) {
-      newDrawY += this.speed;
-      this.srcX = 0;
-  } else if (this.isFacingEast()) {
-      newDrawX += this.speed;
-      this.srcX = 105;
-  } else if (this.isFacingWest()) {
-      newDrawX -= this.speed;
-      this.srcX = 70;
-  }
-
-  if (!obstacleCollision && !outOfBounds(this, newDrawX, newDrawY)) {
-      this.drawX = newDrawX;
-      this.drawY = newDrawY;
-  }
-};
 
 
 function outOfBounds(a, x, y) {
