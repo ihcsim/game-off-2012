@@ -50,14 +50,22 @@ Player.prototype.isFacingWest = function(){
 
 Player.prototype.executeAction = function(event){
   var keyID = event.keyCode || event.which;
-  if(keyID == 38)
+  if(keyID == 38) {
     this.currentDirection = this.direction.NORTH;
-  else if(keyID == 40)
+    event.preventDefault();
+  }
+  else if(keyID == 40) {
     this.currentDirection = this.direction.SOUTH;
-  else if(keyID == 39)
+    event.preventDefault();
+  }
+  else if(keyID == 39) {
     this.currentDirection = this.direction.EAST;
-  else if(keyID == 37)
+    event.preventDefault();
+  }
+  else if(keyID == 37) {
     this.currentDirection = this.direction.WEST;
+    event.preventDefault();
+  }
 };
 
 Player.prototype.updatePos = function () {
@@ -74,18 +82,18 @@ Player.prototype.checkDirection = function () {
   var newDrawX = this.drawX,
       newDrawY = this.drawY,
       obstacleCollision = false;
-  if (this.isUpKey) {
+  if (this.isFacingNorth()) {
       newDrawY -= this.speed;
-      this.srcX = 35; // Facing north
-  } else if (this.isDownKey) {
+      this.srcX = 35;
+  } else if (this.isFacingSouth()) {
       newDrawY += this.speed;
-      this.srcX = 0; // Facing south
-  } else if (this.isRightKey) {
+      this.srcX = 0;
+  } else if (this.isFacingEast()) {
       newDrawX += this.speed;
-      this.srcX = 105; // Facing east
-  } else if (this.isLeftKey) {
+      this.srcX = 105;
+  } else if (this.isFacingWest()) {
       newDrawX -= this.speed;
-      this.srcX = 70; // Facing west
+      this.srcX = 70;
   }
 
   //obstacleCollision = this.checkObstacleCollide(newDrawX, newDrawY);
