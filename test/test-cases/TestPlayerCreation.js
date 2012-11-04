@@ -1,4 +1,4 @@
-test("Player - Create Player", function() {
+test("Player - Create player", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
   ok(player != null, "Failed to create player");
