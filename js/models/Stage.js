@@ -4,8 +4,8 @@ Stage = function(spriteSrc, dom){
   
   this.height = dom.height;
   this.width = dom.width;
-};
-
-Stage.prototype.isReady = function(){
-  return this.sprite.src != null;
+  
+  this.isReady = function(){
+    return this.sprite.src != null;
+  };
 };
