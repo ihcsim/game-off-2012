@@ -1,12 +1,10 @@
 $(document).ready(function(){
-  var stage = $("#stage");
-
   var isPlaying = false;
   var requestAnimationFrame = null;
 
   var spriteSrc = "images/sprite.png";
   var player = new Player(spriteSrc);
-  var newStage = new Stage(spriteSrc, stage[0]);
+  var newStage = new Stage(spriteSrc);
   if(newStage.isReady())
     initGame();
   

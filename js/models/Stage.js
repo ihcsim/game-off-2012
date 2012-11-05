@@ -1,4 +1,4 @@
-Stage = function(spriteSrc, dom){
+Stage = function(spriteSrc){
   var DEFAULT_SPRITE_POS_X = 0;
   var DEFAULT_SPRITE_POS_Y = 0;
   var DEFAULT_START_POS_X = 0;
@@ -12,9 +12,8 @@ Stage = function(spriteSrc, dom){
   this.sprite = new Image();
   this.sprite.src = spriteSrc;
   
-  this.dom = dom;
-  this.height = dom.height;
-  this.width = dom.width;
+  this.height = 600;
+  this.width = 800;
   
   this.isReady = function(){
     return this.sprite != null;
