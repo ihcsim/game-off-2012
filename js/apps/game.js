@@ -1,9 +1,6 @@
 $(document).ready(function(){
   var stage = $("#stage");
-  var stageCtx = stage[0].getContext("2d");
-  var stageCanvas = $("#stage-canvas");
-  var stageCanvasCtx = stageCanvas[0].getContext("2d");
-  
+
   var isPlaying = false;
   var requestAnimationFrame = null;
 
@@ -43,24 +40,14 @@ $(document).ready(function(){
   function loop(){
     if(isPlaying) {
       update();
-      draw();
+      drawStage(newStage);
+      drawPlayer(player);
       requestAnimationFrame(loop);
     }
   }
   
   function update(){
-    clearCanvas(stageCanvasCtx);
+    clearStage(newStage);
     player.updatePosition();
-  }
-  
-  function clearCanvas(ctx) {
-    var startX = 0;
-    var startY = 0;
-    ctx.clearRect(startX, startY, newStage.width, newStage.height);
-  }
-  
-  function draw(){
-    stageCtx.drawImage(newStage.sprite, newStage.srcX, newStage.srcY, newStage.width, newStage.height, newStage.posX, newStage.posY, newStage.width, newStage.height);
-    stageCanvasCtx.drawImage(player.sprite, player.srcX, player.srcY, player.width, player.height, player.posX, player.posY, player.width, player.height);
   }
 });
