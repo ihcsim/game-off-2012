@@ -19,9 +19,4 @@ Stage = function(spriteSrc, dom){
   this.isReady = function(){
     return this.sprite != null;
   };
-  
-  this.loadBackground = function(){
-    var stageCtx = this.dom.getContext("2d");
-    stageCtx.drawImage(this.sprite, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.width, this.height);
-  };
 };

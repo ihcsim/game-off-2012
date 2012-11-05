@@ -84,11 +84,7 @@ function Player(stage, spriteSrc){
     this.centerY = this.calculateCenterY();
     this.checkDirection();
   };
-
-  this.draw = function () {
-    this.stage.drawImage(this.sprite, this.srcX, this.srcY, this.width, this.height, this.drawX, this.drawY, this.width, this.height);
-  };
-
+  
   this.checkDirection = function () {
     var newDrawX = this.drawX;
     var newDrawY = this.drawY;

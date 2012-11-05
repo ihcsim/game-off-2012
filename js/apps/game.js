@@ -1,7 +1,8 @@
 $(document).ready(function(){
-  var stage = $("#stage"),
-      stageCanvas = $("#stage-canvas"),
-      stageCanvasCtx = stageCanvas[0].getContext("2d");
+  var stage = $("#stage");
+  var stageCtx = stage[0].getContext("2d");
+  var stageCanvas = $("#stage-canvas");
+  var stageCanvasCtx = stageCanvas[0].getContext("2d");
   
   var isPlaying = false;
   var requestAnimationFrame = null;
@@ -59,8 +60,8 @@ $(document).ready(function(){
   }
   
   function draw(){
-    newStage.loadBackground();
-    player.draw();
+    stageCtx.drawImage(newStage.sprite, newStage.srcX, newStage.srcY, newStage.width, newStage.height, newStage.drawX, newStage.drawY, newStage.width, newStage.height);
+    stageCanvasCtx.drawImage(player.sprite, player.srcX, player.srcY, player.width, player.height, player.drawX, player.drawY, player.width, player.height);
   }
 
   function outOfBounds(a, x, y) {
