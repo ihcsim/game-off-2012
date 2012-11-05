@@ -2,10 +2,9 @@ $(document).ready(function(){
   var isPlaying = false;
   var requestAnimationFrame = null;
 
-  var spriteSrc = "images/sprite.png";
-  var player = new Player(spriteSrc);
-  var newStage = new Stage(spriteSrc);
-  if(newStage.isReady())
+  var player = initPlayer();
+  var stage = initStage();
+  if(stage.isReady() && player.isReady())
     initGame();
   
   function initGame(){
@@ -38,14 +37,14 @@ $(document).ready(function(){
   function loop(){
     if(isPlaying) {
       update();
-      drawStage(newStage);
+      drawStage(stage);
       drawPlayer(player);
       requestAnimationFrame(loop);
     }
   }
   
   function update(){
-    clearStage(newStage);
+    clearStage(stage);
     player.updatePosition();
   }
 });

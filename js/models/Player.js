@@ -31,6 +31,10 @@ function Player(spriteSrc){
   };
   this.centerY = this.calculateCenterY();
   
+  this.isReady = function(){
+    return this.sprite != null;
+  };
+  
   this.isFacingNorth = function(){
     return this.currentDirection == this.direction.NORTH;
   };
