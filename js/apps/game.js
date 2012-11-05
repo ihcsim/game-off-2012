@@ -9,7 +9,7 @@ $(document).ready(function(){
   
   function initGame(){
     isPlaying = true;
-    initKeyboardEventHandler();
+    initKeyboardEventHandler(player);
     requestAnimationFrame = initRequestAnimationFrame();
     requestAnimationFrame(loop);
   }
@@ -23,15 +23,6 @@ $(document).ready(function(){
         function(callback) {
           window.setTimeout(callback, 1000 / 60);
         };
-  }
-  
-  function initKeyboardEventHandler(){
-    $(document).keydown(function(event) {
-      player.executeAction(event);
-    });
-    $(document).keyup(function(e) {
-      player.haltAction(e);
-    });
   }
   
   function loop(){
