@@ -1,12 +1,3 @@
-var spriteSrc = "images/sprite.png";
-function initStage(){
-  return new Stage(spriteSrc);
-}
-
-function initPlayer(){
-  return new Player(spriteSrc);
-}
-
 var stage = $("#stage");
 var stageCtx = stage[0].getContext("2d");
 function drawStage(stage){
