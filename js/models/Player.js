@@ -99,7 +99,7 @@ function Player(spriteSrc){
         this.srcX = 70;
     }
 
-    if (!obstacleCollision && !outOfBounds(this, newPosX, newPosY)) {
+    if (!outOfBounds(this, newPosX, newPosY)) {
         this.posX = newPosX;
         this.posY = newPosY;
     }
