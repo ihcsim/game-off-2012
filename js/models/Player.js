@@ -15,12 +15,6 @@ function Player(spriteSrc){
   this.drawY = DEFAULT_START_POS_Y;
   this.speed = DEFAULT_SPEED;
   
-  this.isUpKey = false;
-  this.isRightKey = false;
-  this.isDownKey = false;
-  this.isLeftKey = false;
-  this.isSpacebar = false;
-  
   this.sprite = new Image();
   this.sprite.src = spriteSrc;
   
