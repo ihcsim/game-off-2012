@@ -11,8 +11,8 @@ function Player(spriteSrc){
   this.srcY = DEFAULT_SPRITE_POS_Y;
   this.width = DEFAULT_PLAYER_WIDTH;
   this.height = DEFAULT_PLAYER_HEIGHT;
-  this.drawX = DEFAULT_START_POS_X;
-  this.drawY = DEFAULT_START_POS_Y;
+  this.posX = DEFAULT_START_POS_X;
+  this.posY = DEFAULT_START_POS_Y;
   this.speed = DEFAULT_SPEED;
   
   this.sprite = new Image();
@@ -22,12 +22,12 @@ function Player(spriteSrc){
   this.currentDirection = this.direction.SOUTH;
   
   this.calculateCenterX = function(){
-    return this.drawX + (this.width / 2);
+    return this.posX + (this.width / 2);
   };
   this.centerX = this.calculateCenterX();
 
   this.calculateCenterY = function(){
-    return this.drawY + (this.height / 2);
+    return this.posY + (this.height / 2);
   };
   this.centerY = this.calculateCenterY();
   
@@ -78,26 +78,26 @@ function Player(spriteSrc){
   };
   
   this.checkDirection = function () {
-    var newDrawX = this.drawX;
-    var newDrawY = this.drawY;
+    var newPosX = this.posX;
+    var newPosY = this.posY;
     var obstacleCollision = false;
     if (this.isFacingNorth()) {
-        newDrawY -= this.speed;
+        newPosY -= this.speed;
         this.srcX = 35;
     } else if (this.isFacingSouth()) {
-        newDrawY += this.speed;
+        newPosY += this.speed;
         this.srcX = 0;
     } else if (this.isFacingEast()) {
-        newDrawX += this.speed;
+        newPosX += this.speed;
         this.srcX = 105;
     } else if (this.isFacingWest()) {
-        newDrawX -= this.speed;
+        newPosX -= this.speed;
         this.srcX = 70;
     }
 
-    if (!obstacleCollision && !outOfBounds(this, newDrawX, newDrawY)) {
-        this.drawX = newDrawX;
-        this.drawY = newDrawY;
+    if (!obstacleCollision && !outOfBounds(this, newPosX, newPosY)) {
+        this.posX = newPosX;
+        this.posY = newPosY;
     }
   };
 }
