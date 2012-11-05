@@ -6,8 +6,8 @@ Stage = function(spriteSrc, dom){
   
   this.srcX = DEFAULT_SPRITE_POS_X;
   this.srcY = DEFAULT_SPRITE_POS_Y;
-  this.drawX = DEFAULT_START_POS_X;
-  this.drawY = DEFAULT_START_POS_Y;
+  this.posX = DEFAULT_START_POS_X;
+  this.posY = DEFAULT_START_POS_Y;
   
   this.sprite = new Image();
   this.sprite.src = spriteSrc;

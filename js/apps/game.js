@@ -60,7 +60,7 @@ $(document).ready(function(){
   }
   
   function draw(){
-    stageCtx.drawImage(newStage.sprite, newStage.srcX, newStage.srcY, newStage.width, newStage.height, newStage.drawX, newStage.drawY, newStage.width, newStage.height);
+    stageCtx.drawImage(newStage.sprite, newStage.srcX, newStage.srcY, newStage.width, newStage.height, newStage.posX, newStage.posY, newStage.width, newStage.height);
     stageCanvasCtx.drawImage(player.sprite, player.srcX, player.srcY, player.width, player.height, player.posX, player.posY, player.width, player.height);
   }
 
