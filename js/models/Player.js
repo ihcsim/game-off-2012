@@ -1,4 +1,4 @@
-function Player(stage, spriteSrc){
+function Player(spriteSrc){
   var DEFAULT_SPRITE_POS_X = 0;
   var DEFAULT_SPRITE_POS_Y = 600;
   var DEFAULT_PLAYER_WIDTH = 35;
@@ -20,8 +20,6 @@ function Player(stage, spriteSrc){
   this.isDownKey = false;
   this.isLeftKey = false;
   this.isSpacebar = false;
-  
-  this.stage = stage;
   
   this.sprite = new Image();
   this.sprite.src = spriteSrc;

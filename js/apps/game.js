@@ -8,7 +8,7 @@ $(document).ready(function(){
   var requestAnimationFrame = null;
 
   var spriteSrc = "images/sprite.png";
-  var player = new Player(stageCanvasCtx, spriteSrc);
+  var player = new Player(spriteSrc);
   var newStage = new Stage(spriteSrc, stage[0]);
   if(newStage.isReady())
     initGame();
