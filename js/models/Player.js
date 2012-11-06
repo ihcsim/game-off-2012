@@ -22,12 +22,12 @@ function Player(spriteSrc){
   this.currentDirection = this.direction.SOUTH;
   
   this.calculateCenterX = function(){
-    return this.posX + (this.width / 2);
+    return calculateCenterCoordinate(this.posX, this.width);
   };
   this.centerX = this.calculateCenterX();
 
   this.calculateCenterY = function(){
-    return this.posY + (this.height / 2);
+    return calculateCenterCoordinate(this.posY, this.height);
   };
   this.centerY = this.calculateCenterY();
   
