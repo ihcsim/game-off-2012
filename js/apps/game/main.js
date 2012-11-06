@@ -1,8 +1,12 @@
 $(document).ready(function(){
   var isPlaying = false;
   var requestAnimationFrame = null;
-
+  
   var player = initPlayer();
+  
+  var numEnemies = 5;
+  var enemies = initEnemies(numEnemies);
+  
   var stage = initStage();
   if(stage.isReady() && player.isReady())
     initGame();
@@ -30,6 +34,7 @@ $(document).ready(function(){
       update();
       drawStage(stage);
       drawPlayer(player);
+      drawEnemies(enemies);
       requestAnimationFrame(loop);
     }
   }
@@ -37,5 +42,8 @@ $(document).ready(function(){
   function update(){
     clearStage(stage);
     player.updatePosition();
+    $.each(enemies, function(index, enemy){
+      enemy.updatePosition();
+    });
   }
 });

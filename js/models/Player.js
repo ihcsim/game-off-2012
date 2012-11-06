@@ -84,7 +84,6 @@ function Player(spriteSrc){
   this.checkDirection = function () {
     var newPosX = this.posX;
     var newPosY = this.posY;
-    var obstacleCollision = false;
     if (this.isFacingNorth()) {
         newPosY -= this.speed;
         this.srcX = 35;
