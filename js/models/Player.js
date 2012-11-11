@@ -101,12 +101,9 @@ function Player(spriteSrc){
     this.stop();
   };
 
-  this.updatePosition = function () {
+  this.lookAheadNewPosition = function () {
     if(!inMotion)
       return;
-
-    console.log(this.currentPosition);
-    
     
     var newPosX = null;
     var newPosY = null;
@@ -132,7 +129,6 @@ function Player(spriteSrc){
   };
   
   this.commitPosition = function(){
-    console.log("committing");
     this.currentPosition = new Coordinates(this.newPosition.posX, this.newPosition.posY);
   };
   
