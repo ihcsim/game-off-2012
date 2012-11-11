@@ -64,19 +64,19 @@ function Player(spriteSrc){
 
   this.executeAction = function(event){
     var keyID = event.keyCode || event.which;
-    if(keyID == 38) {
+    if(keyID == 38) { // up
       this.turnNorth();
       event.preventDefault();
     }
-    else if(keyID == 40) {
+    else if(keyID == 40) { // down
       this.turnSouth();
       event.preventDefault();
     }
-    else if(keyID == 39) {
+    else if(keyID == 39) { // right
       this.turnEast();
       event.preventDefault();
     }
-    else if(keyID == 37) {
+    else if(keyID == 37) { // left
       this.turnWest();
       event.preventDefault();
     }
