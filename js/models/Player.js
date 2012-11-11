@@ -82,7 +82,7 @@ function Player(spriteSrc){
     if(keyID == 38) { // up
       this.turnNorth();
       event.preventDefault();
-    }
+    } 
     else if(keyID == 40) { // down
       this.turnSouth();
       event.preventDefault();
@@ -111,15 +111,18 @@ function Player(spriteSrc){
         newPosY = this.currentPosition.posY - speed;
         newPosX = this.currentPosition.posX;
         this.srcX = 35;
-    } else if (this.isFacingSouth()) {
+    } 
+    else if (this.isFacingSouth()) {
         newPosY = this.currentPosition.posY + speed;
         newPosX = this.currentPosition.posX;
         this.srcX = 0;
-    } else if (this.isFacingEast()) {
+    } 
+    else if (this.isFacingEast()) {
         newPosX = this.currentPosition.posX + speed;
         newPosY = this.currentPosition.posY;
         this.srcX = 105;
-    } else if (this.isFacingWest()) {
+    } 
+    else if (this.isFacingWest()) {
         newPosX = this.currentPosition.posX - speed;
         newPosY = this.currentPosition.posY;
         this.srcX = 70;
