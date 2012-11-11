@@ -72,10 +72,6 @@ function Player(spriteSrc){
   };
 
   this.updatePosition = function () {
-    this.checkDirection();
-  };
-  
-  this.checkDirection = function () {
     var newPosX = this.currentPosition.posX;
     var newPosY = this.currentPosition.posY;
     if (this.isFacingNorth()) {
