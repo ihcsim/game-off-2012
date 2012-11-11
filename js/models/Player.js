@@ -10,17 +10,25 @@ function Player(spriteSrc){
   this.srcX = DEFAULT_SPRITE_POS_X;
   this.srcY = DEFAULT_SPRITE_POS_Y;
   
-  this.posX = DEFAULT_START_POS_X;
-  this.posY = DEFAULT_START_POS_Y;
-  
   this.dimension = new Dimension(DEFAULT_PLAYER_WIDTH, DEFAULT_PLAYER_HEIGHT);
   this.currentPosition = new Coordinates(DEFAULT_START_POS_X, DEFAULT_START_POS_Y);
+  this.newPosition = new Coordinates(DEFAULT_START_POS_X, DEFAULT_START_POS_Y);
   this.calculateCenterCoordinates = function(){
     return calculateCenterCoordinates(this.currentPosition, this.dimension);
   };
   
   var speed = DEFAULT_SPEED;
+  
   var inMotion = false;
+  this.isInMotion = function(){
+    return inMotion;
+  };
+  this.move = function(){
+    inMotion = true;
+  };
+  this.stop = function(){
+    inMotion = false;
+  };
   
   this.sprite = new Image();
   this.sprite.src = spriteSrc;
@@ -64,8 +72,13 @@ function Player(spriteSrc){
   };
 
   this.executeAction = function(event){
-    inMotion = true;
     var keyID = event.keyCode || event.which;
+    if(keyID == 37 ||keyID == 38 || keyID == 39 || keyID == 40)
+      this.move();
+    
+    if(!this.isInMotion())
+      return;
+    
     if(keyID == 38) { // up
       this.turnNorth();
       event.preventDefault();
@@ -85,13 +98,15 @@ function Player(spriteSrc){
   };
 
   this.haltAction = function(event){
-    inMotion = false;
-    currentDirection = null;
+    this.stop();
   };
 
   this.updatePosition = function () {
     if(!inMotion)
       return;
+
+    console.log(this.currentPosition);
+    
     
     var newPosX = null;
     var newPosY = null;
@@ -113,28 +128,12 @@ function Player(spriteSrc){
         this.srcX = 70;
     }
 
-    this.currentPosition.posX = newPosX;
-    this.currentPosition.posY = newPosY;
+    this.newPosition= new Coordinates(newPosX, newPosY);
   };
   
-  this.collideWithObstacles = function(obstacles){
-    var obstacleCounter = 0;
-    var newCenterX = this.currentPosition.posX + (this.dimension.width / 2);
-    var newCenterY = this.currentPosition.posY + (this.height / 2);
-    
-    for (var i = 0; i < obstacles.length; i++) {
-    if (obstacles[i].leftX < newCenterX && newCenterX < obstacles[i].rightX && obstacles[i].topY - 20 < newCenterY && newCenterY < obstacles[i].bottomY - 20) {
-        obstacleCounter = 0;
-    } else {
-        obstacleCounter++;
-    }
-    }
-    
-    if (obstacleCounter === obstacles.length) {
-        return false;
-    } else {
-        return true;
-    }
+  this.commitPosition = function(){
+    console.log("committing");
+    this.currentPosition = new Coordinates(this.newPosition.posX, this.newPosition.posY);
   };
   
   this.draw = function(){
@@ -147,20 +146,4 @@ function Player(spriteSrc){
         this.currentPosition.posX, this.currentPosition.posY, 
         this.dimension.width, this.dimension.height);
   };
-}
-
-
-function outOfBounds(a, x, y) {
-  var newBottomY = y + a.height,
-      newTopY = y,
-      newRightX = x + a.width,
-      newLeftX = x,
-      treeLineTop = 5,
-      treeLineBottom = 570,
-      treeLineRight = 750,
-      treeLineLeft = 65;
-  return newBottomY > treeLineBottom ||
-      newTopY < treeLineTop ||
-      newRightX > treeLineRight ||
-      newLeftX < treeLineLeft;
 }

@@ -3,6 +3,7 @@ test("Player position - Calculate player position x-coordinate after turning nor
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnNorth();
+  player.move();
   player.updatePosition();
   ok(player.currentPosition.posX == 10, "Player position x coordinate is incorrect");
 });
@@ -12,6 +13,7 @@ test("Player position - Calculate player position y-coordinate after turning nor
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnNorth();
+  player.move();
   player.updatePosition();
   ok(player.currentPosition.posY == 8, "Player position y coordinate is incorrect");
 });
@@ -21,6 +23,7 @@ test("Player position - Calculate player position x-coordinate after turning sou
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnSouth();
+  player.move();
   player.updatePosition();
   ok(player.currentPosition.posX == 10, "Player position x coordinate is incorrect");
 });
@@ -30,6 +33,7 @@ test("Player position - Calculate player position y-coordinate  after turning so
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnSouth();
+  player.move();
   player.updatePosition();
   ok(player.currentPosition.posY == 12, "Player position y coordinate is incorrect");
 });
@@ -40,6 +44,7 @@ test("Player position - Calculate player position x-coordinate after turning eas
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnEast();
+  player.move();
   player.updatePosition();
   ok(player.currentPosition.posX == 12, "Player position x coordinate is incorrect");
 });
@@ -49,6 +54,7 @@ test("Player position - Calculate player position y-coordinate after turning eas
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnEast();
+  player.move();
   player.updatePosition();
   ok(player.currentPosition.posY == 10, "Player position y coordinate is incorrect");
 });
@@ -58,6 +64,7 @@ test("Player position - Calculate player position after turning west", function(
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnWest();
+  player.move();
   player.updatePosition();
   ok(player.currentPosition.posX == 8, "Player position x coordinate is incorrect");
   ok(player.currentPosition.posY == 10, "Player position y coordinate is incorrect");
