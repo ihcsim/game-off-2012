@@ -9,10 +9,16 @@ function Player(spriteSrc){
   
   this.srcX = DEFAULT_SPRITE_POS_X;
   this.srcY = DEFAULT_SPRITE_POS_Y;
-  this.width = DEFAULT_PLAYER_WIDTH;
-  this.height = DEFAULT_PLAYER_HEIGHT;
+  
   this.posX = DEFAULT_START_POS_X;
   this.posY = DEFAULT_START_POS_Y;
+  
+  this.dimension = new Dimension(DEFAULT_PLAYER_WIDTH, DEFAULT_PLAYER_HEIGHT);
+  this.currentPosition = new Coordinates(DEFAULT_START_POS_X, DEFAULT_START_POS_Y);
+  this.calculateCenterCoordinates = function(){
+    return calculateCenterCoordinates(this.currentPosition, this.dimension);
+  };
+  
   this.speed = DEFAULT_SPEED;
   
   this.sprite = new Image();
@@ -21,15 +27,8 @@ function Player(spriteSrc){
   this.direction = new Direction();
   this.currentDirection = this.direction.SOUTH;
   
-  this.calculateCenterX = function(){
-    return calculateCenterCoordinate(this.posX, this.width);
-  };
-  this.centerX = this.calculateCenterX();
-
-  this.calculateCenterY = function(){
-    return calculateCenterCoordinate(this.posY, this.height);
-  };
-  this.centerY = this.calculateCenterY();
+  this.width = DEFAULT_PLAYER_WIDTH;
+  this.height = DEFAULT_PLAYER_HEIGHT;
   
   this.isReady = function(){
     return this.sprite != null;
@@ -76,8 +75,6 @@ function Player(spriteSrc){
   };
 
   this.updatePosition = function () {
-    this.centerX = this.calculateCenterX();
-    this.centerY = this.calculateCenterY();
     this.checkDirection();
   };
   
@@ -101,6 +98,28 @@ function Player(spriteSrc){
     if (!outOfBounds(this, newPosX, newPosY)) {
         this.posX = newPosX;
         this.posY = newPosY;
+    }
+  };
+  
+  this.collideWithObstacles = function(obstacles){
+    var obstacleCounter = 0;
+    var newCenterX = this.posX + (this.width / 2);
+    var newCenterY = this.posY + (this.height / 2);
+    
+    
+    
+    for (var i = 0; i < obstacles.length; i++) {
+    if (obstacles[i].leftX < newCenterX && newCenterX < obstacles[i].rightX && obstacles[i].topY - 20 < newCenterY && newCenterY < obstacles[i].bottomY - 20) {
+        obstacleCounter = 0;
+    } else {
+        obstacleCounter++;
+    }
+    }
+    
+    if (obstacleCounter === obstacles.length) {
+        return false;
+    } else {
+        return true;
     }
   };
 }
