@@ -76,8 +76,8 @@ function Player(spriteSrc){
   };
   
   this.checkDirection = function () {
-    var newPosX = this.posX;
-    var newPosY = this.posY;
+    var newPosX = this.currentPosition.posX;
+    var newPosY = this.currentPosition.posY;
     if (this.isFacingNorth()) {
         newPosY -= this.speed;
         this.srcX = 35;
@@ -93,15 +93,15 @@ function Player(spriteSrc){
     }
 
     if (!outOfBounds(this, newPosX, newPosY)) {
-        this.posX = newPosX;
-        this.posY = newPosY;
+        this.currentPosition.posX = newPosX;
+        this.currentPosition.posY = newPosY;
     }
   };
   
   this.collideWithObstacles = function(obstacles){
     var obstacleCounter = 0;
-    var newCenterX = this.posX + (this.dimension.width / 2);
-    var newCenterY = this.posY + (this.height / 2);
+    var newCenterX = this.currentPosition.posX + (this.dimension.width / 2);
+    var newCenterY = this.currentPosition.posY + (this.height / 2);
     
     for (var i = 0; i < obstacles.length; i++) {
     if (obstacles[i].leftX < newCenterX && newCenterX < obstacles[i].rightX && obstacles[i].topY - 20 < newCenterY && newCenterY < obstacles[i].bottomY - 20) {
@@ -125,7 +125,7 @@ function Player(spriteSrc){
         this.sprite, 
         this.srcX, this.srcY, 
         this.dimension.width, this.dimension.height, 
-        this.posX, this.posY, 
+        this.currentPosition.posX, this.currentPosition.posY, 
         this.dimension.width, this.dimension.height);
   };
 }
