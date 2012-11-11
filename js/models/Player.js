@@ -83,30 +83,34 @@ function Player(spriteSrc){
   };
 
   this.haltAction = function(event){
-    this.currentDirection = null;
+    currentDirection = null;
   };
 
   this.updatePosition = function () {
-    var newPosX = this.currentPosition.posX;
-    var newPosY = this.currentPosition.posY;
+    var newPosX = null;
+    var newPosY = null;
     if (this.isFacingNorth()) {
-        newPosY -= this.speed;
+        newPosY = this.currentPosition.posY - this.speed;
+        newPosX = this.currentPosition.posX;
         this.srcX = 35;
     } else if (this.isFacingSouth()) {
-        newPosY += this.speed;
+        newPosY = this.currentPosition.posY + this.speed;
+        newPosX = this.currentPosition.posX;
         this.srcX = 0;
     } else if (this.isFacingEast()) {
-        newPosX += this.speed;
+        newPosX = this.currentPosition.posX + this.speed;
+        newPosY = this.currentPosition.posY;
         this.srcX = 105;
     } else if (this.isFacingWest()) {
-        newPosX -= this.speed;
+        newPosX = this.currentPosition.posX - this.speed;
+        newPosY = this.currentPosition.posY;
         this.srcX = 70;
     }
 
-    if (!outOfBounds(this, newPosX, newPosY)) {
+//    if (!outOfBounds(this, newPosX, newPosY)) {
         this.currentPosition.posX = newPosX;
         this.currentPosition.posY = newPosY;
-    }
+//    }
   };
   
   this.collideWithObstacles = function(obstacles){
