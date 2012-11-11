@@ -3,6 +3,7 @@ $(document).ready(function(){
   var requestAnimationFrame = null;
   
   var player = initPlayer();
+  var obstacles = initObstacles();
   
   var numEnemies = 5;
   var enemies = initEnemies(numEnemies);
@@ -33,7 +34,7 @@ $(document).ready(function(){
     if(isPlaying) {
       update();
       drawStage(stage);
-      drawPlayer(player);
+      player.draw();
       drawEnemies(enemies);
       requestAnimationFrame(loop);
     }
@@ -41,7 +42,8 @@ $(document).ready(function(){
   
   function update(){
     clearStage(stage);
-    player.updatePosition();
+    if(!player.collideWithObstacles(obstacles))
+      player.updatePosition();
     $.each(enemies, function(index, enemy){
       enemy.updatePosition();
     });
