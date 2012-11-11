@@ -6,10 +6,6 @@ function drawStage(stage){
 
 var stageCanvas = $("#stage-canvas");
 var stageCanvasCtx = stageCanvas[0].getContext("2d");
-function drawPlayer(player){
-  stageCanvasCtx.drawImage(player.sprite, player.srcX, player.srcY, player.width, player.height, player.posX, player.posY, player.width, player.height);
-}
-
 function drawEnemies(enemies){
   $.each(enemies, function(index, enemy){
     drawEnemy(enemy);

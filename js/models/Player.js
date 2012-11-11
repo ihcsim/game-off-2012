@@ -122,6 +122,17 @@ function Player(spriteSrc){
         return true;
     }
   };
+  
+  this.draw = function(){
+    var stageCanvas = $("#stage-canvas");
+    var stageCanvasCtx = stageCanvas[0].getContext("2d");
+    stageCanvasCtx.drawImage(
+        this.sprite, 
+        this.srcX, this.srcY, 
+        this.width, this.height, 
+        this.posX, this.posY, 
+        this.width, this.height);
+  };
 }
 
 
