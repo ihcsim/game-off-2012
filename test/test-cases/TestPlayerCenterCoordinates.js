@@ -1,4 +1,4 @@
-test("Player position - Calculate player center coordinates #1", function() {
+test("Player center coordinates - Calculate player center coordinates #1", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
@@ -8,7 +8,7 @@ test("Player position - Calculate player center coordinates #1", function() {
   ok(playerCenterCoord.posY == 20, "Player center y coordinate is incorrect");
 });
 
-test("Player position - Calculate player center coordinates #2", function() {
+test("Player center coordinates - Calculate player center coordinates #2", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);

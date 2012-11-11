@@ -1,4 +1,4 @@
-test("Coordinates Calculator - Calculate object center coordinates 1", function() {
+test("Coordinates Calculator - Calculate object center coordinates #1", function() {
   var position = new Coordinates(10, 10);
   var dimensions = new Dimension(10, 20); 
   var centerCoordinates = calculateCenterCoordinates(position, dimensions);
@@ -6,7 +6,7 @@ test("Coordinates Calculator - Calculate object center coordinates 1", function(
   ok(centerCoordinates.posY == 20, "Incorrect center y-coordinate");
 });
 
-test("Coordinates Calculator - Calculate object center coordinates 2", function() {
+test("Coordinates Calculator - Calculate object center coordinates #2", function() {
   var position = new Coordinates(10, 10);
   var dimensions = new Dimension(30, 50); 
   var centerCoordinates = calculateCenterCoordinates(position, dimensions);
