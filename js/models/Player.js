@@ -27,9 +27,6 @@ function Player(spriteSrc){
   this.direction = new Direction();
   this.currentDirection = this.direction.SOUTH;
   
-  this.width = DEFAULT_PLAYER_WIDTH;
-  this.height = DEFAULT_PLAYER_HEIGHT;
-  
   this.isReady = function(){
     return this.sprite != null;
   };
@@ -103,10 +100,8 @@ function Player(spriteSrc){
   
   this.collideWithObstacles = function(obstacles){
     var obstacleCounter = 0;
-    var newCenterX = this.posX + (this.width / 2);
+    var newCenterX = this.posX + (this.dimension.width / 2);
     var newCenterY = this.posY + (this.height / 2);
-    
-    
     
     for (var i = 0; i < obstacles.length; i++) {
     if (obstacles[i].leftX < newCenterX && newCenterX < obstacles[i].rightX && obstacles[i].topY - 20 < newCenterY && newCenterY < obstacles[i].bottomY - 20) {
@@ -129,9 +124,9 @@ function Player(spriteSrc){
     stageCanvasCtx.drawImage(
         this.sprite, 
         this.srcX, this.srcY, 
-        this.width, this.height, 
+        this.dimension.width, this.dimension.height, 
         this.posX, this.posY, 
-        this.width, this.height);
+        this.dimension.width, this.dimension.height);
   };
 }
 
