@@ -24,45 +24,60 @@ function Player(spriteSrc){
   this.sprite = new Image();
   this.sprite.src = spriteSrc;
   
-  this.direction = new Direction();
-  this.currentDirection = this.direction.SOUTH;
-  
   this.isReady = function(){
     return this.sprite != null;
   };
   
+  var direction = new Direction();
+  var currentDirection = direction.SOUTH;
   this.isFacingNorth = function(){
-    return this.currentDirection == this.direction.NORTH;
+    return currentDirection == direction.NORTH;
+  };
+  
+  this.turnNorth = function(){
+    currentDirection = direction.NORTH;
   };
 
   this.isFacingSouth = function(){
-    return this.currentDirection == this.direction.SOUTH;
+    return currentDirection == direction.SOUTH;
+  };
+  
+  this.turnSouth = function(){
+    currentDirection = direction.SOUTH;
   };
 
   this.isFacingEast = function(){
-    return this.currentDirection == this.direction.EAST;
+    return currentDirection == direction.EAST;
+  };
+  
+  this.turnEast = function(){
+    currentDirection = direction.EAST;
   };
 
   this.isFacingWest = function(){
-    return this.currentDirection == this.direction.WEST;
+    return currentDirection == direction.WEST;
+  };
+  
+  this.turnWest = function(){
+    currentDirection = direction.WEST;
   };
 
   this.executeAction = function(event){
     var keyID = event.keyCode || event.which;
     if(keyID == 38) {
-      this.currentDirection = this.direction.NORTH;
+      this.turnNorth();
       event.preventDefault();
     }
     else if(keyID == 40) {
-      this.currentDirection = this.direction.SOUTH;
+      this.turnSouth();
       event.preventDefault();
     }
     else if(keyID == 39) {
-      this.currentDirection = this.direction.EAST;
+      this.turnEast();
       event.preventDefault();
     }
     else if(keyID == 37) {
-      this.currentDirection = this.direction.WEST;
+      this.turnWest();
       event.preventDefault();
     }
   };
