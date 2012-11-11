@@ -1,4 +1,4 @@
-test("Player position - Calculate player position x-coordinate after turning north #1", function() {
+test("Player look-ahead new position - Calculate player position x-coordinate after turning north #1", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
@@ -8,7 +8,7 @@ test("Player position - Calculate player position x-coordinate after turning nor
   ok(player.currentPosition.posX == 10, "Player position x coordinate is incorrect");
 });
 
-test("Player position - Calculate player position y-coordinate after turning north #1", function() {
+test("Player look-ahead new position - Calculate player position y-coordinate after turning north #1", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
@@ -18,7 +18,7 @@ test("Player position - Calculate player position y-coordinate after turning nor
   ok(player.newPosition.posY == 8, "Player position y coordinate is incorrect");
 });
 
-test("Player position - Calculate player position x-coordinate after turning south", function() {
+test("Player look-ahead new position - Calculate player position x-coordinate after turning south", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
@@ -28,7 +28,7 @@ test("Player position - Calculate player position x-coordinate after turning sou
   ok(player.newPosition.posX == 10, "Player position x coordinate is incorrect");
 });
 
-test("Player position - Calculate player position y-coordinate  after turning south", function() {
+test("Player look-ahead new position - Calculate player position y-coordinate  after turning south", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
@@ -39,7 +39,7 @@ test("Player position - Calculate player position y-coordinate  after turning so
 });
 
 
-test("Player position - Calculate player position x-coordinate after turning east", function() {
+test("Player look-ahead new position - Calculate player position x-coordinate after turning east", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
@@ -49,7 +49,7 @@ test("Player position - Calculate player position x-coordinate after turning eas
   ok(player.newPosition.posX == 12, "Player position x coordinate is incorrect");
 });
 
-test("Player position - Calculate player position y-coordinate after turning east", function() {
+test("Player look-ahead new position - Calculate player position y-coordinate after turning east", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
@@ -59,7 +59,7 @@ test("Player position - Calculate player position y-coordinate after turning eas
   ok(player.newPosition.posY == 10, "Player position y coordinate is incorrect");
 });
 
-test("Player position - Calculate player position after turning west", function() {
+test("Player look-ahead new position - Calculate player position after turning west", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
