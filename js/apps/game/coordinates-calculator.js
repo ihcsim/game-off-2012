@@ -12,10 +12,6 @@ function calculateCenterCoordinates(position, dimension){
   return centerCoordinates;
 }
 
-function generateRandomCoordinate(min, max) {
-  return Math.floor(Math.random() * (max + 1 - min)) + min;
-}
-
 function generateRandomCoordinates(minX, maxX, minY, maxY) {
   var randomXCoord = Math.floor(Math.random() * (maxX + 1 - minX)) + minX;
   var randomYCoord = Math.floor(Math.random() * (maxY + 1 - minY)) + minY;
