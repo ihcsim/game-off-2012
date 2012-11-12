@@ -28,4 +28,14 @@ Enemy = function(spriteSrc){
   this.updatePosition = function () {
     this.calculateCenterCoordinates();
   };
+  
+  this.draw = function() {
+    var stageCanvas = $("#stage-canvas");
+    var stageCanvasCtx = stageCanvas[0].getContext("2d");
+    stageCanvasCtx.drawImage(this.sprite, 
+        this.srcX, this.srcY, 
+        this.dimension.width, this.dimension.height, 
+        this.currentPosition.posX, this.currentPosition.posY, 
+        this.dimension.width, this.dimension.height);
+  }
 };
