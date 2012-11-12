@@ -18,7 +18,7 @@ function generateRandomCoordinates(minX, maxX, minY, maxY) {
   return new Coordinates(randomXCoord, randomYCoord);
 }
 
-function generateRectCoordinates(position, dimension){
+function calculateRectCoordinates(position, dimension){
   coordinates = {
       topLeft: new Coordinates(position.posX, position.posY),
       topRight: new Coordinates(position.posX + dimension.width, position.posY),
