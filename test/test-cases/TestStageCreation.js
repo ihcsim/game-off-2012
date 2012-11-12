@@ -19,11 +19,11 @@ test("Stage - Sprite image file path matches", function() {
 test("Stage - Height is set", function() {
   var spriteSrc = "../images/sprite.png";
   var stage = new Stage(spriteSrc);
-  ok(stage.height == 600, "Sprite image file paths don't match");
+  ok(stage.dimension.height == 600, "Sprite image file paths don't match");
 });
 
 test("Stage - Width is set", function() {
   var spriteSrc = "../images/sprite.png";
   var stage = new Stage(spriteSrc);
-  ok(stage.width == 800, "Sprite image file paths don't match");
+  ok(stage.dimension.width == 800, "Sprite image file paths don't match");
 });
