@@ -14,20 +14,11 @@ function outOfBounds(player) {
 
 
 function collideWithObstacles(player, obstacles){
-  var obstacleCounter = 0;
   var newCenterCoords = player.calculateCenterCoordinates();
-  
   $.each(obstacles, function(index, obstacle){
-    if (obstacle.leftX < newCenterCoords.posX && newCenterCoords.posX < obstacle.rightX && obstacle.topY - 20 < newCenterCoords.posY && newCenterCoords.posY < obstacle.bottomY - 20) {
-      obstacleCounter = 0;
-    } else {
-      obstacleCounter++;
-    }
-  });
-  
-  if (obstacleCounter === obstacles.length) {
-      return false;
-  } else {
+    if((newCenterCoords.posX >= obstacle.coordinates.topLeft.posX && newCenterCoords.posX <= obstacle.coordinates.topRight.posX) 
+    && (newCenterCoords.posY >= obstacle.coordinates.topLeft.posY && newCenterCoords.posY <= obstacle.coordinates.bottomLeft.posY))
       return true;
-  }
+  });
+  return false;
 }

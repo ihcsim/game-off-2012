@@ -45,7 +45,7 @@ $(document).ready(function(){
   function update(){
     stage.clear();
     player.lookAheadNewPosition();
-    if(!outOfBounds(player))
+    if(!outOfBounds(player) && !collideWithObstacles(player, obstacles))
       player.commitPosition();
     $.each(enemies, function(index, enemy){
       enemy.updatePosition();
