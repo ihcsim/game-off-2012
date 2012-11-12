@@ -16,7 +16,7 @@ Enemy = function(spriteSrc){
   var minX = 0;
   var maxX = 800 - this.dimension.width;
   var minY = 0;
-  var maxY = this.dimension.height;
+  var maxY = 600 - this.dimension.height;
   this.currentPosition = generateRandomCoordinates(minX, maxX, minY, maxY);
   this.calculateCenterCoordinates = function(){
     return calculateCenterCoordinates(this.currentPosition, this.dimension);
@@ -26,6 +26,6 @@ Enemy = function(spriteSrc){
   this.sprite.src = spriteSrc;
   
   this.updatePosition = function () {
-
+    this.calculateCenterCoordinates();
   };
 };
