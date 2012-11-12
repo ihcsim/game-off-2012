@@ -18,12 +18,12 @@ function generateRandomCoordinates(minX, maxX, minY, maxY) {
   return new Coordinates(randomXCoord, randomYCoord);
 }
 
-function generateRectCoordinates(posX, posY, width, height){
+function generateRectCoordinates(position, dimension){
   coordinates = {
-      leftX: posX,
-      rightX: posX + width,
-      topY: posY,
-      bottomY: posY + height
+      topLeft: new Coordinates(position.posX, position.posY),
+      topRight: new Coordinates(position.posX + dimension.width, position.posY),
+      bottomLeft: new Coordinates(position.posX, position.posY + dimension.height),
+      bottomRight: new Coordinates(position.posX + dimension.width, position.posY + dimension.height)
   };
   return coordinates;
 }
