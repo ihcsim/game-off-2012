@@ -7,8 +7,8 @@ Enemy = function(spriteSrc){
   
   this.srcX = DEFAULT_SPRITE_POS_X;
   this.srcY = DEFAULT_SPRITE_POS_Y;
-  this.width = DEFAULT_ENEMY_WIDTH;
-  this.height = DEFAULT_ENEMY_HEIGHT;
+  
+  this.dimension = new Dimension(DEFAULT_ENEMY_WIDTH, DEFAULT_ENEMY_HEIGHT);
   
   this.speed = DEFAULT_SPEED;
   this.isDead = false;
@@ -16,16 +16,16 @@ Enemy = function(spriteSrc){
   this.sprite = new Image();
   this.sprite.src = spriteSrc;
 
-  this.posX = generateRandomCoordinate(0, 800 - this.width);
-  this.posY = generateRandomCoordinate(0, 600 - this.height);
+  this.posX = generateRandomCoordinate(0, 800 - this.dimension.width);
+  this.posY = generateRandomCoordinate(0, 600 - this.dimension.height);
   
   this.calculateCenterX = function(){
-    return calculateCenterCoordinate(this.posX, this.width);
+    return calculateCenterCoordinate(this.posX, this.dimension.width);
   };
   this.centerX = this.calculateCenterX();
 
   this.calculateCenterY = function(){
-    return calculateCenterCoordinate(this.posY , this.height);
+    return calculateCenterCoordinate(this.posY , this.dimension.height);
   };
   this.centerY = this.calculateCenterY();
   
