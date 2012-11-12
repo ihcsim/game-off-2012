@@ -16,9 +16,11 @@ Enemy = function(spriteSrc){
   this.sprite = new Image();
   this.sprite.src = spriteSrc;
   
-  var randomXCoordinate = generateRandomCoordinate(0, 800 - this.dimension.width);
-  var randomYCoordinate = generateRandomCoordinate(0, 600 - this.dimension.height);
-  this.currentPosition = new Coordinates(randomXCoordinate, randomYCoordinate);
+  var minX = 0;
+  var maxX = 800 - this.dimension.width;
+  var minY = 0;
+  var maxY = this.dimension.height;
+  this.currentPosition = generateRandomCoordinates(minX, maxX, minY, maxY)
   
   this.calculateCenterX = function(){
     return calculateCenterCoordinate(this.currentPosition.posX, this.dimension.width);
