@@ -8,13 +8,12 @@ Stage = function(spriteSrc){
   
   this.srcX = DEFAULT_SPRITE_POS_X;
   this.srcY = DEFAULT_SPRITE_POS_Y;
-  this.posX = DEFAULT_START_POS_X;
-  this.posY = DEFAULT_START_POS_Y;
+  
+  this.position = new Coordinates(DEFAULT_START_POS_X, DEFAULT_START_POS_Y);
+  this.dimension = new Dimension(DEFAULT_STAGE_WIDTH, DEFAULT_STAGE_HEIGHT);
   
   this.sprite = new Image();
   this.sprite.src = spriteSrc;
-  
-  this.dimension = new Dimension(DEFAULT_STAGE_WIDTH, DEFAULT_STAGE_HEIGHT);
   
   this.isReady = function(){
     return this.sprite != null;
