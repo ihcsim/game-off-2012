@@ -23,12 +23,11 @@ Stage = function(spriteSrc){
     var stage = $("#stage");
     var stageCtx = stage[0].getContext("2d");
     stageCtx.drawImage(this.sprite, this.srcX, this.srcY, this.dimension.width, this.dimension.height, this.position.posX, this.position.posY, this.dimension.width, this.dimension.height);
-  }
+  };
 
   this.clear = function() {
     var stageCanvas = $("#stage-canvas");
     var stageCanvasCtx = stageCanvas[0].getContext("2d");
-    stageCanvasCtx.clearRect(stage.srcX, this.srcY, this.width, this.height);
-  }
-
+    stageCanvasCtx.clearRect(this.srcX, this.srcY, this.dimension.width, this.dimension.height);
+  };
 };
