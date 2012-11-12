@@ -15,17 +15,18 @@ Enemy = function(spriteSrc){
   
   this.sprite = new Image();
   this.sprite.src = spriteSrc;
-
-  this.posX = generateRandomCoordinate(0, 800 - this.dimension.width);
-  this.posY = generateRandomCoordinate(0, 600 - this.dimension.height);
+  
+  var randomXCoordinate = generateRandomCoordinate(0, 800 - this.dimension.width);
+  var randomYCoordinate = generateRandomCoordinate(0, 600 - this.dimension.height);
+  this.currentPosition = new Coordinates(randomXCoordinate, randomYCoordinate);
   
   this.calculateCenterX = function(){
-    return calculateCenterCoordinate(this.posX, this.dimension.width);
+    return calculateCenterCoordinate(this.currentPosition.posX, this.dimension.width);
   };
   this.centerX = this.calculateCenterX();
 
   this.calculateCenterY = function(){
-    return calculateCenterCoordinate(this.posY , this.dimension.height);
+    return calculateCenterCoordinate(this.currentPosition.posY , this.dimension.height);
   };
   this.centerY = this.calculateCenterY();
   

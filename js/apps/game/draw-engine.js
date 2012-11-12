@@ -13,7 +13,7 @@ function drawEnemies(enemies){
 }
 
 function drawEnemy(enemy){
-  stageCanvasCtx.drawImage(enemy.sprite, enemy.srcX, enemy.srcY, enemy.dimension.width, enemy.dimension.height, enemy.posX, enemy.posY, enemy.dimension.width, enemy.dimension.height);
+  stageCanvasCtx.drawImage(enemy.sprite, enemy.srcX, enemy.srcY, enemy.dimension.width, enemy.dimension.height, enemy.currentPosition.posX, enemy.currentPosition.posY, enemy.dimension.width, enemy.dimension.height);
 }
 
 function clearStage(stage) {
