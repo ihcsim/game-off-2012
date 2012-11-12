@@ -17,7 +17,7 @@ test("Coordinates Calculator - Calculate object center coordinates #2", function
 test("Coordinates Calculator - Calculate rectangle top-left x-coordinate", function() {
   var position = new Coordinates(10, 20);
   var dimensions = new Dimension(10, 30); 
-  var rectCoord = generateRectCoordinates(position, dimensions);
+  var rectCoord = calculateRectCoordinates(position, dimensions);
   var topLeftCoord = rectCoord.topLeft;
   ok(topLeftCoord.posX == 10, "Incorrect center x-coordinate");
 });
@@ -25,7 +25,7 @@ test("Coordinates Calculator - Calculate rectangle top-left x-coordinate", funct
 test("Coordinates Calculator - Calculate rectangle top-left y-coordinate", function() {
   var position = new Coordinates(10, 20);
   var dimensions = new Dimension(10, 30); 
-  var rectCoord = generateRectCoordinates(position, dimensions);
+  var rectCoord = calculateRectCoordinates(position, dimensions);
   var topLeftCoord = rectCoord.topLeft;
   ok(topLeftCoord.posY == 20, "Incorrect center x-coordinate");
 });
@@ -33,7 +33,7 @@ test("Coordinates Calculator - Calculate rectangle top-left y-coordinate", funct
 test("Coordinates Calculator - Calculate rectangle top-right x-coordinate", function() {
   var position = new Coordinates(10, 20);
   var dimensions = new Dimension(10, 30); 
-  var rectCoord = generateRectCoordinates(position, dimensions);
+  var rectCoord = calculateRectCoordinates(position, dimensions);
   var topLeftCoord = rectCoord.topRight;
   ok(topLeftCoord.posX == 20, "Incorrect center x-coordinate");
 });
@@ -41,7 +41,7 @@ test("Coordinates Calculator - Calculate rectangle top-right x-coordinate", func
 test("Coordinates Calculator - Calculate rectangle top-right y-coordinate", function() {
   var position = new Coordinates(10, 20);
   var dimensions = new Dimension(10, 30); 
-  var rectCoord = generateRectCoordinates(position, dimensions);
+  var rectCoord = calculateRectCoordinates(position, dimensions);
   var topLeftCoord = rectCoord.topRight;
   ok(topLeftCoord.posY == 20, "Incorrect center x-coordinate");
 });
@@ -49,7 +49,7 @@ test("Coordinates Calculator - Calculate rectangle top-right y-coordinate", func
 test("Coordinates Calculator - Calculate rectangle bottom-left x-coordinate", function() {
   var position = new Coordinates(10, 20);
   var dimensions = new Dimension(10, 30); 
-  var rectCoord = generateRectCoordinates(position, dimensions);
+  var rectCoord = calculateRectCoordinates(position, dimensions);
   var topLeftCoord = rectCoord.bottomLeft;
   ok(topLeftCoord.posX == 10, "Incorrect center x-coordinate");
 });
@@ -57,7 +57,7 @@ test("Coordinates Calculator - Calculate rectangle bottom-left x-coordinate", fu
 test("Coordinates Calculator - Calculate rectangle bottom-left y-coordinate", function() {
   var position = new Coordinates(10, 20);
   var dimensions = new Dimension(10, 30); 
-  var rectCoord = generateRectCoordinates(position, dimensions);
+  var rectCoord = calculateRectCoordinates(position, dimensions);
   var topLeftCoord = rectCoord.bottomLeft;
   ok(topLeftCoord.posY == 50, "Incorrect center x-coordinate");
 });
@@ -65,7 +65,7 @@ test("Coordinates Calculator - Calculate rectangle bottom-left y-coordinate", fu
 test("Coordinates Calculator - Calculate rectangle bottom-right x-coordinate", function() {
   var position = new Coordinates(10, 20);
   var dimensions = new Dimension(10, 30); 
-  var rectCoord = generateRectCoordinates(position, dimensions);
+  var rectCoord = calculateRectCoordinates(position, dimensions);
   var topLeftCoord = rectCoord.bottomRight;
   ok(topLeftCoord.posX == 20, "Incorrect center x-coordinate");
 });
@@ -73,7 +73,7 @@ test("Coordinates Calculator - Calculate rectangle bottom-right x-coordinate", f
 test("Coordinates Calculator - Calculate rectangle bottom-right y-coordinate", function() {
   var position = new Coordinates(10, 20);
   var dimensions = new Dimension(10, 30); 
-  var rectCoord = generateRectCoordinates(position, dimensions);
+  var rectCoord = calculateRectCoordinates(position, dimensions);
   var topLeftCoord = rectCoord.bottomRight;
   ok(topLeftCoord.posY == 50, "Incorrect center x-coordinate");
 });
