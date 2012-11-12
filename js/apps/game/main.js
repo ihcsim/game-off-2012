@@ -33,20 +33,20 @@ $(document).ready(function(){
   function loop(){
     if(isPlaying) {
       update();
-      drawStage(stage);
+      stage.draw();
       player.draw();
-      drawEnemies(enemies);
+      $.each(enemies, function(index, enemy){
+        enemy.draw();
+      });
       requestAnimationFrame(loop);
     }
   }
   
   function update(){
-    clearStage(stage);
-    
+    stage.clear();
     player.lookAheadNewPosition();
     if(!outOfBounds(player))
       player.commitPosition();
-    
     $.each(enemies, function(index, enemy){
       enemy.updatePosition();
     });
