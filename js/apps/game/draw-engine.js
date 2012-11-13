@@ -19,7 +19,7 @@ function collideWithObstacles(player, obstacles){
   var collide = false;
   $.each(obstacles, function(index, obstacle){
     if(newCoords.posX >= obstacle.coordinates.topLeft.posX && newCoords.posX <= obstacle.coordinates.topRight.posX 
-    && newCoords.posY >= obstacle.coordinates.topLeft.posY && newCoords.posY <= obstacle.coordinates.bottomLeft.posY)
+    && newCoords.posY >= obstacle.coordinates.topLeft.posY - 20 && newCoords.posY <= obstacle.coordinates.bottomLeft.posY)
       collide = true;
   });
   return collide;
