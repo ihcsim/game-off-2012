@@ -12,10 +12,14 @@ function Player(spriteSrc){
   
   this.dimension = new Dimension(DEFAULT_PLAYER_WIDTH, DEFAULT_PLAYER_HEIGHT);
   this.currentPosition = new Coordinates(DEFAULT_START_POS_X, DEFAULT_START_POS_Y);
-  this.newPosition = new Coordinates(DEFAULT_START_POS_X, DEFAULT_START_POS_Y);
   this.calculateCenterCoordinates = function(){
     return calculateCenterCoordinates(this.currentPosition, this.dimension);
   };
+  
+  this.calculateNewPositionCenterCoordinates = function(){
+    return calculateCenterCoordinates(this.newPosition, this.dimension);
+  };
+  this.newPosition = new Coordinates(DEFAULT_START_POS_X, DEFAULT_START_POS_Y);
   
   var speed = DEFAULT_SPEED;
   

@@ -14,11 +14,13 @@ function outOfBounds(player) {
 
 
 function collideWithObstacles(player, obstacles){
-  var newCenterCoords = player.calculateCenterCoordinates();
+  var newCoords = player.calculateNewPositionCenterCoordinates();
+  console.log(newCoords);
+  var collide = false;
   $.each(obstacles, function(index, obstacle){
-    if((newCenterCoords.posX >= obstacle.coordinates.topLeft.posX && newCenterCoords.posX <= obstacle.coordinates.topRight.posX) 
-    && (newCenterCoords.posY >= obstacle.coordinates.topLeft.posY && newCenterCoords.posY <= obstacle.coordinates.bottomLeft.posY))
-      return true;
+    if(newCoords.posX >= obstacle.coordinates.topLeft.posX && newCoords.posX <= obstacle.coordinates.topRight.posX 
+    && newCoords.posY >= obstacle.coordinates.topLeft.posY && newCoords.posY <= obstacle.coordinates.bottomLeft.posY)
+      collide = true;
   });
-  return false;
+  return collide;
 }
