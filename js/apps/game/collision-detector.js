@@ -15,7 +15,6 @@ function outOfBounds(player) {
 
 function collideWithObstacles(player, obstacles){
   var newCoords = player.calculateNewPositionCenterCoordinates();
-  console.log(newCoords);
   var collide = false;
   $.each(obstacles, function(index, obstacle){
     if(newCoords.posX >= obstacle.coordinates.topLeft.posX && newCoords.posX <= obstacle.coordinates.topRight.posX 
