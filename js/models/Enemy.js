@@ -36,8 +36,6 @@ Enemy = function(spriteSrc){
   this.moveInterval = setInterval(function(){ thisEnemy.setNextRandomPosition();}, thisEnemy.nextMoveTime);
   
   this.setNextRandomPosition = function(){
-    this.nextMoveTime = rand(DEFAULT_MIN_TIME, DEFAULT_MAX_TIME);
-    
     var centerCoords = this.calculateCenterCoordinates();
     var minPosX = centerCoords.posX - DEFAULT_MOVEMENT_RADIUS;
     var maxPosX = centerCoords.posX + DEFAULT_MOVEMENT_RADIUS;
