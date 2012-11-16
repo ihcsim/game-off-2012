@@ -1,4 +1,4 @@
-function Player(spriteSrc){
+Player = function(spriteSrc){
   var DEFAULT_SPRITE_POS_X = 0;
   var DEFAULT_SPRITE_POS_Y = 600;
   var DEFAULT_PLAYER_WIDTH = 35;
@@ -74,6 +74,12 @@ function Player(spriteSrc){
   this.turnWest = function(){
     currentDirection = direction.WEST;
   };
+  
+  var numBullets = 10;
+  this.bullets = new Array();
+  for (var i = 0; i < numBullets; i++)
+    this.bullets[i] = new Bullet(this);
+  this.currentBullet = 0;
 
   this.executeAction = function(event){
     var keyID = event.keyCode || event.which;
