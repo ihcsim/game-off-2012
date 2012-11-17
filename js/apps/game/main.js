@@ -2,7 +2,7 @@ $(document).ready(function(){
   var isPlaying = false;
   var requestAnimationFrame = null;
   
-  var player = initPlayer();
+  var player = initPlayerWithBullet();
   var obstacles = initObstacles();
   
   var numEnemies = 5;
