@@ -1,7 +1,8 @@
 test("Player/Bullet Direction- If player faces north, bullet shall travel north", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
-  var bullet = new Bullet(player);
+  var bullet = new Bullet();
+  player.loadBullet(bullet);
   
   player.turnNorth();
   bullet.updateDirection();
@@ -11,7 +12,8 @@ test("Player/Bullet Direction- If player faces north, bullet shall travel north"
 test("Player/Bullet Direction- If player faces south, bullet shall travel south", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
-  var bullet = new Bullet(player);
+  var bullet = new Bullet();
+  player.loadBullet(bullet);
   
   player.turnSouth();
   bullet.updateDirection();
@@ -21,7 +23,8 @@ test("Player/Bullet Direction- If player faces south, bullet shall travel south"
 test("Player/Bullet Direction- If player faces east, bullet shall travel east", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
-  var bullet = new Bullet(player);
+  var bullet = new Bullet();
+  player.loadBullet(bullet);
   
   player.turnEast();
   bullet.updateDirection();
@@ -31,7 +34,8 @@ test("Player/Bullet Direction- If player faces east, bullet shall travel east", 
 test("Player/Bullet Direction- If player faces east, bullet shall travel west", function() {
   var spriteSrc = "../images/sprite.png";
   var player = new Player(spriteSrc);
-  var bullet = new Bullet(player);
+  var bullet = new Bullet();
+  player.loadBullet(bullet);
   
   player.turnWest();
   bullet.updateDirection();

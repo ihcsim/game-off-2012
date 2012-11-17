@@ -75,11 +75,16 @@ Player = function(spriteSrc){
     currentDirection = direction.WEST;
   };
   
-  var numBullets = 10;
-  this.bullets = new Array();
-  for (var i = 0; i < numBullets; i++)
-    this.bullets[i] = new Bullet(this);
-  this.currentBullet = 0;
+  var bullets = new Array();
+  var currentBullet = -1;
+  this.loadBullet = function(bullet){
+    bullet.setPlayer(this);
+    bullets.push(bullet);
+  };
+  
+  this.hasBullet = function(){
+    return (currentBullet < bullets.length);
+  };
 
   this.executeAction = function(event){
     var keyID = event.keyCode || event.which;
@@ -155,4 +160,4 @@ Player = function(spriteSrc){
         this.currentPosition.posX, this.currentPosition.posY, 
         this.dimension.width, this.dimension.height);
   };
-}
+};
