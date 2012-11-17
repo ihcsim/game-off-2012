@@ -2,7 +2,8 @@ $(document).ready(function(){
   var isPlaying = false;
   var requestAnimationFrame = null;
   
-  var player = initPlayerWithBullet();
+  var numBullets = 10;
+  var player = initPlayerWithBullets(numBullets);
   var obstacles = initObstacles();
   
   var numEnemies = 5;
@@ -45,7 +46,7 @@ $(document).ready(function(){
   function update(){
     stage.clear();
     player.lookAheadNewPosition();
-    if(!outOfBounds(player) && !collideWithObstacles(player, obstacles))
+    if(!playerIsOutOfBounds(player) && !playerCollideWithObstacles(player, obstacles))
       player.commitPosition();
     $.each(enemies, function(index, enemy){
       enemy.updatePosition();
