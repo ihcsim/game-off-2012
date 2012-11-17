@@ -21,8 +21,9 @@ Enemy = function(spriteSrc){
   this.srcY = DEFAULT_SPRITE_POS_Y;
   
   this.dimension = new Dimension(DEFAULT_ENEMY_WIDTH, DEFAULT_ENEMY_HEIGHT);
-  this.speed = DEFAULT_SPEED;
-  this.isDead = false;
+  
+  var speed = DEFAULT_SPEED;
+  var isDead = false;
 
   this.currentPosition = generateRandomCoordinates(MIN_X_COORDINATE, MAX_X_COORDINATE, MIN_Y_COORDINATE, MAX_Y_COORDINATE);
   
@@ -93,7 +94,7 @@ Enemy = function(spriteSrc){
   }
   
   function incrementPositionXCoordinate(){
-    thisEnemy.currentPosition.posX += thisEnemy.speed;
+    thisEnemy.currentPosition.posX += speed;
   }
   
   function nextPositionIsToTheLeft(){
@@ -102,7 +103,7 @@ Enemy = function(spriteSrc){
   }
   
   function decrementPositionXCoordinate(){
-    thisEnemy.currentPosition.posX -= thisEnemy.speed;
+    thisEnemy.currentPosition.posX -= speed;
   }
   
   function nextPositionIsBelowCurrentPosition(){
@@ -111,7 +112,7 @@ Enemy = function(spriteSrc){
   }
   
   function incrementPositionYCoordinate(){
-    thisEnemy.currentPosition.posY += thisEnemy.speed;
+    thisEnemy.currentPosition.posY += speed;
   }
   
   function nextPositionIsAboveCurrentPosition(){
@@ -120,16 +121,19 @@ Enemy = function(spriteSrc){
   }
   
   function decrementPositionYCoordinate(){
-    thisEnemy.currentPosition.posY -= thisEnemy.speed;
+    thisEnemy.currentPosition.posY -= speed;
   }
-  
   
   this.die = function () {
     var soundEffect = new Audio("audio/dying.wav");
     soundEffect.play();
     clearInterval(this.moveInterval);
     this.srcX = 185;
-    this.isDead = true;
+    isDead = true;
+  };
+  
+  this.isDead = function(){
+    return isDead;
   };
 
   
