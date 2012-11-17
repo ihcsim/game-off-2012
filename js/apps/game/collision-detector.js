@@ -1,4 +1,4 @@
-function outOfBounds(player) {
+function playerIsOutOfBounds(player) {
   var topEdge = 5;
   var bottomEdge = 570;
   var rightEdge = 750;
@@ -12,7 +12,7 @@ function outOfBounds(player) {
   return hitLowerBound || hitUpperBound || hitLeftBound || hitRightBound;
 }
 
-function collideWithObstacles(player, obstacles){
+function playerCollideWithObstacles(player, obstacles){
   var newCoords = player.calculateNewPositionCenterCoordinates();
   var collide = false;
   $.each(obstacles, function(index, obstacle){
@@ -21,13 +21,6 @@ function collideWithObstacles(player, obstacles){
       collide = true;
   });
   return collide;
-}
-
-function collideWithTarget(source, target) {
-  return source.currentPosition.posX <= target.currentPosition.posX + target.dimension.width &&
-      source.currentPosition.posX >= target.currentPosition.posX &&
-      source.currentPosition.posY <= target.currentPosition.posY + target.dimension.height &&
-      source.currentPosition.posY >= target.currentPosition.posY;
 }
 
 function bulletHitEnemies(bullet, enemies) {
@@ -47,5 +40,12 @@ function bulletHitObstacle(bullet, obstacles) {
 
 function bulletOutOfBounds(bullet) {
   if (outOfBounds(bullet, bullet.currentPosition.posX, bullet.currentPosition.posY))
-      bullet.inActive();
+    bullet.inActive();
+}
+
+function collideWithTarget(source, target) {
+  return source.currentPosition.posX <= target.currentPosition.posX + target.dimension.width &&
+      source.currentPosition.posX >= target.currentPosition.posX &&
+      source.currentPosition.posY <= target.currentPosition.posY + target.dimension.height &&
+      source.currentPosition.posY >= target.currentPosition.posY;
 }

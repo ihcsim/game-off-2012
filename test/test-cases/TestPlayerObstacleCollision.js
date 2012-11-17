@@ -10,7 +10,7 @@ test("Player/Obstacle Collision - Player collides with obstacle top boundary", f
   player.dimension = new Dimension(0, 0);
   
   obstacles = [new Obstacle(DEFAULT_OBSTACLE_POSX, DEFAULT_OBSTACLE_POSY, DEFAULT_OBSTACLE_WIDTH, DEFAULT_OBSTACLE_HEIGHT)];
-  ok(collideWithObstacles(player, obstacles), "A collision should occur");
+  ok(playerCollideWithObstacles(player, obstacles), "A collision should occur");
 });
 
 test("Player/Obstacle Collision - Player collides with obstacle left boundary", function() {
@@ -20,7 +20,7 @@ test("Player/Obstacle Collision - Player collides with obstacle left boundary", 
   player.dimension = new Dimension(0, 0);
 
   obstacles = [new Obstacle(DEFAULT_OBSTACLE_POSX, DEFAULT_OBSTACLE_POSY, DEFAULT_OBSTACLE_WIDTH, DEFAULT_OBSTACLE_HEIGHT)];
-  ok(collideWithObstacles(player, obstacles), "A collision should occur");
+  ok(playerCollideWithObstacles(player, obstacles), "A collision should occur");
 });
 
 test("Player/Obstacle Collision - Player collides with obstacle right boundary", function() {
@@ -30,7 +30,7 @@ test("Player/Obstacle Collision - Player collides with obstacle right boundary",
   player.dimension = new Dimension(0, 0);
 
   obstacles = [new Obstacle(DEFAULT_OBSTACLE_POSX, DEFAULT_OBSTACLE_POSY, DEFAULT_OBSTACLE_WIDTH, DEFAULT_OBSTACLE_HEIGHT)];
-  ok(collideWithObstacles(player, obstacles), "A collision should occur");
+  ok(playerCollideWithObstacles(player, obstacles), "A collision should occur");
 });
 
 test("Player/Obstacle Collision - Player collides with obstacle bottom boundary", function() {
@@ -40,7 +40,7 @@ test("Player/Obstacle Collision - Player collides with obstacle bottom boundary"
   player.dimension = new Dimension(0, 0);
 
   obstacles = [new Obstacle(DEFAULT_OBSTACLE_POSX, DEFAULT_OBSTACLE_POSY, DEFAULT_OBSTACLE_WIDTH, DEFAULT_OBSTACLE_HEIGHT)];
-  ok(collideWithObstacles(player, obstacles), "A collision should occur");
+  ok(playerCollideWithObstacles(player, obstacles), "A collision should occur");
 });
 
 test("Player/Obstacle Collision - No collision with obstacle top boundary", function() {
@@ -50,7 +50,7 @@ test("Player/Obstacle Collision - No collision with obstacle top boundary", func
   player.dimension = new Dimension(0, 0);
 
   obstacles = [new Obstacle(DEFAULT_OBSTACLE_POSX, DEFAULT_OBSTACLE_POSY, DEFAULT_OBSTACLE_WIDTH, DEFAULT_OBSTACLE_HEIGHT)];
-  ok(!collideWithObstacles(player, obstacles), "A collision shouldn't occur");
+  ok(!playerCollideWithObstacles(player, obstacles), "A collision shouldn't occur");
 });
 
 test("Player/Obstacle Collision - No collision with obstacle left boundary", function() {
@@ -60,7 +60,7 @@ test("Player/Obstacle Collision - No collision with obstacle left boundary", fun
   player.dimension = new Dimension(0, 0);
 
   obstacles = [new Obstacle(DEFAULT_OBSTACLE_POSX, DEFAULT_OBSTACLE_POSY, DEFAULT_OBSTACLE_WIDTH, DEFAULT_OBSTACLE_HEIGHT)];
-  ok(!collideWithObstacles(player, obstacles), "A collision shouldn't occur");
+  ok(!playerCollideWithObstacles(player, obstacles), "A collision shouldn't occur");
 });
 
 test("Player/Obstacle Collision - No collision with obstacle right boundary", function() {
@@ -70,7 +70,7 @@ test("Player/Obstacle Collision - No collision with obstacle right boundary", fu
   player.dimension = new Dimension(0, 0);
 
   obstacles = [new Obstacle(DEFAULT_OBSTACLE_POSX, DEFAULT_OBSTACLE_POSY, DEFAULT_OBSTACLE_WIDTH, DEFAULT_OBSTACLE_HEIGHT)];
-  ok(!collideWithObstacles(player, obstacles), "A collision shouldn't occur");
+  ok(!playerCollideWithObstacles(player, obstacles), "A collision shouldn't occur");
 });
 
 test("Player/Obstacle Collision - No collision with obstacle bottom boundary", function() {
@@ -80,5 +80,5 @@ test("Player/Obstacle Collision - No collision with obstacle bottom boundary", f
   player.dimension = new Dimension(0, 0);
 
   obstacles = [new Obstacle(DEFAULT_OBSTACLE_POSX, DEFAULT_OBSTACLE_POSY, DEFAULT_OBSTACLE_WIDTH, DEFAULT_OBSTACLE_HEIGHT)];
-  ok(!collideWithObstacles(player, obstacles), "A collision shouldn't occur");
+  ok(!playerCollideWithObstacles(player, obstacles), "A collision shouldn't occur");
 });
