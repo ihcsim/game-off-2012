@@ -83,7 +83,11 @@ Player = function(spriteSrc){
   };
   
   this.hasBullet = function(){
-    return (currentBullet < bullets.length);
+    return (bullets.length > 0);
+  };
+  
+  this.numBullets = function(){
+    return bullets.length;
   };
 
   this.executeAction = function(event){
