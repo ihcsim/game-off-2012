@@ -7,7 +7,7 @@ Bullet = function(player){
   var direction = new Direction();
   var currentDirection = direction.NORTH;
   
-  this.isFired = false;
+  var isActive = false;
   this.xVel = 0;
   this.yVel = 0;
   this.speed = 6;
@@ -38,7 +38,6 @@ Bullet = function(player){
       this.westBound();
     else if (this.player.isFacingEast())
       this.eastBound();
-    this.isFired = true;
   };
   
   this.northBound = function(){
@@ -79,5 +78,17 @@ Bullet = function(player){
   
   this.isWestBound = function(){
     return (currentDirection == direction.WEST);
+  };
+  
+  this.active = function(){
+    isActive = true;
+  };
+
+  this.inactive = function () {
+    isActive = false;
+  };
+  
+  this.isActive = function(){
+    return isActive;
   };
 };
