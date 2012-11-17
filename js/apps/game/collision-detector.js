@@ -12,7 +12,6 @@ function outOfBounds(player) {
   return hitLowerBound || hitUpperBound || hitLeftBound || hitRightBound;
 }
 
-
 function collideWithObstacles(player, obstacles){
   var newCoords = player.calculateNewPositionCenterCoordinates();
   var collide = false;
@@ -22,4 +21,31 @@ function collideWithObstacles(player, obstacles){
       collide = true;
   });
   return collide;
+}
+
+function collideWithTarget(source, target) {
+  return source.currentPosition.posX <= target.currentPosition.posX + target.dimension.width &&
+      source.currentPosition.posX >= target.currentPosition.posX &&
+      source.currentPosition.posY <= target.currentPosition.posY + target.dimension.height &&
+      source.currentPosition.posY >= target.currentPosition.posY;
+}
+
+function bulletHitEnemies(bullet, enemies) {
+  $.each(enemies, function(index, enemy){
+    if(collideWithTarget(bullet, enemy) && !enemy.isDead())
+      bullet.inActive();
+      enemy.die();
+  });
+};
+
+function bulletHitObstacle(bullet, obstacles) {
+  $.each(obstacles, function(index, obstacle){
+    if(collideWithTarget(bullet, obstacle))
+      bullet.inActive();
+  });
+}
+
+function bulletOutOfBounds(bullet) {
+  if (outOfBounds(bullet, bullet.currentPosition.posX, bullet.currentPosition.posY))
+      bullet.inActive();
 }
