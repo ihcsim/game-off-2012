@@ -1,4 +1,4 @@
-Player = function(spriteSrc){
+Player = function(spriteSrc, numBullets){
   var DEFAULT_SPRITE_POS_X = 0;
   var DEFAULT_SPRITE_POS_Y = 600;
   var DEFAULT_PLAYER_WIDTH = 35;

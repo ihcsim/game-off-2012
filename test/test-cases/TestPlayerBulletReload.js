@@ -25,3 +25,9 @@ test("Player/Bullet Reload- Player has 2 bullets on 2 re-loads", function() {
   player.loadBullet(new Bullet());
   ok(player.numBullets() == 2, "Player should have 2 bullets");
 });
+
+test("Player/Bullet Reload- Reload 3 bullets using factory method", function() {
+  var numBullets = 3;
+  var player = initPlayerWithBullets(numBullets);
+  ok(player.numBullets() == 3, "Player should have 3 bullets");
+});

@@ -7,11 +7,22 @@ function initPlayer(){
   return new Player(spriteSrc);
 }
 
+function initPlayerWithBullets(numBullets){
+  player = initPlayer(spriteSrc);
+  for(var i = 0; i < numBullets; i++)
+    player.loadBullet(new Bullet());
+  return player;
+}
+
 function initEnemies(numEnemies){
   var enemies = new Array();
   for (var index = 0; index < numEnemies; index++) 
     enemies[index] = new Enemy(spriteSrc);
   return enemies;
+}
+
+function initBullet(){
+  return new Bullet();
 }
 
 function initObstacles(){
