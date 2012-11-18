@@ -44,7 +44,7 @@ function bulletHitEnemies(bullet, enemies) {
 }
 
 function bulletHitEnemy(bullet, enemy) {
-  if(collideWithEnemy(bullet, enemy) && !enemy.isDead())
+  if(bulletCollideWithEnemy(bullet, enemy) && !enemy.isDead())
     return true;
   return false;
 }
@@ -60,21 +60,21 @@ function bulletHitObstacles(bullet, obstacles) {
 }
 
 function bulletHitObstacle(bullet, obstacle) {
-  if(collideWithObstacle(bullet, obstacle))
+  if(bulletCollideWithObstacle(bullet, obstacle))
     return true;
   return false;
 }
 
-function collideWithObstacle(source, obstacle) {
-  return source.currentPosition.posX <= obstacle.position.posX + obstacle.dimension.width &&
-      source.currentPosition.posX >= obstacle.position.posX &&
-      source.currentPosition.posY <= obstacle.position.posY + obstacle.dimension.height &&
-      source.currentPosition.posY >= obstacle.position.posY;
+function bulletCollideWithObstacle(bullet, obstacle) {
+  return bullet.centerCoordinates.posX <= obstacle.position.posX + obstacle.dimension.width &&
+      bullet.centerCoordinates.posX >= obstacle.position.posX &&
+      bullet.centerCoordinates.posY <= obstacle.position.posY + obstacle.dimension.height &&
+      bullet.centerCoordinates.posY >= obstacle.position.posY;
 }
 
-function collideWithEnemy(source, enemy) {
-  return source.currentPosition.posX <= enemy.currentPosition.posX + enemy.dimension.width &&
-      source.currentPosition.posX >= enemy.currentPosition.posX &&
-      source.currentPosition.posY <= enemy.currentPosition.posY + enemy.dimension.height &&
-      source.currentPosition.posY >= enemy.currentPosition.posY;
+function bulletCollideWithEnemy(bullet, enemy) {
+  return bullet.centerCoordinates.posX <= enemy.currentPosition.posX + enemy.dimension.width &&
+      bullet.centerCoordinates.posX >= enemy.currentPosition.posX &&
+      bullet.centerCoordinates.posY <= enemy.currentPosition.posY + enemy.dimension.height &&
+      bullet.centerCoordinates.posY >= enemy.currentPosition.posY;
 }

@@ -5,7 +5,7 @@ test("Bullet/Enemy Collision - Bullet hits enemy at top left corner", function()
   var enemyRectCoordinates = calculateRectCoordinates(enemy.currentPosition, enemy.dimension);
   
   var bullet = new Bullet();
-  bullet.currentPosition = new Coordinates(enemyRectCoordinates.topLeft.posX, enemyRectCoordinates.topLeft.posX);
+  bullet.centerCoordinates = new Coordinates(enemyRectCoordinates.topLeft.posX, enemyRectCoordinates.topLeft.posX);
   ok(bulletHitEnemy(bullet, enemy), "A collision should occur");
 });
 
@@ -16,7 +16,7 @@ test("Bullet/Enemy Collision - Bullet hits enemy at top right corner", function(
   var enemyRectCoordinates = calculateRectCoordinates(enemy.currentPosition, enemy.dimension);
   
   var bullet = new Bullet();
-  bullet.currentPosition = new Coordinates(enemyRectCoordinates.topRight.posX, enemyRectCoordinates.topRight.posX);
+  bullet.centerCoordinates = new Coordinates(enemyRectCoordinates.topRight.posX, enemyRectCoordinates.topRight.posX);
   ok(bulletHitEnemy(bullet, enemy), "A collision should occur");
 });
 
@@ -27,7 +27,7 @@ test("Bullet/Enemy Collision - Bullet hits enemy at bottom left corner", functio
   var enemyRectCoordinates = calculateRectCoordinates(enemy.currentPosition, enemy.dimension);
   
   var bullet = new Bullet();
-  bullet.currentPosition = new Coordinates(enemyRectCoordinates.bottomLeft.posX, enemyRectCoordinates.bottomLeft.posX);
+  bullet.centerCoordinates = new Coordinates(enemyRectCoordinates.bottomLeft.posX, enemyRectCoordinates.bottomLeft.posX);
   ok(bulletHitEnemy(bullet, enemy), "A collision should occur");
 });
 
@@ -38,7 +38,7 @@ test("Bullet/Enemy Collision - Bullet hits enemy at bottom right corner", functi
   var enemyRectCoordinates = calculateRectCoordinates(enemy.currentPosition, enemy.dimension);
   
   var bullet = new Bullet();
-  bullet.currentPosition = new Coordinates(enemyRectCoordinates.bottomRight.posX, enemyRectCoordinates.bottomRight.posX);
+  bullet.centerCoordinates = new Coordinates(enemyRectCoordinates.bottomRight.posX, enemyRectCoordinates.bottomRight.posX);
   ok(bulletHitEnemy(bullet, enemy), "A collision should occur");
 });
 
@@ -50,7 +50,7 @@ test("Bullet/Enemy Collision - Bullet hits enemy at left midpoint", function() {
   
   var bullet = new Bullet();
   var midPointCoordinates = calculateMidPointCoordinates(enemyRectCoordinates.topLeft, enemyRectCoordinates.bottomLeft);
-  bullet.currentPosition = new Coordinates(midPointCoordinates.posX, midPointCoordinates.posY);
+  bullet.centerCoordinates = new Coordinates(midPointCoordinates.posX, midPointCoordinates.posY);
   ok(bulletHitEnemy(bullet, enemy), "A collision should occur");
 });
 
@@ -62,7 +62,7 @@ test("Bullet/Enemy Collision - Bullet hits enemy at right midpoint", function() 
   
   var bullet = new Bullet();
   var midPointCoordinates = calculateMidPointCoordinates(enemyRectCoordinates.topRight, enemyRectCoordinates.bottomRight);
-  bullet.currentPosition = new Coordinates(midPointCoordinates.posX, midPointCoordinates.posY);
+  bullet.centerCoordinates = new Coordinates(midPointCoordinates.posX, midPointCoordinates.posY);
   ok(bulletHitEnemy(bullet, enemy), "A collision should occur");
 });
 
@@ -73,7 +73,7 @@ test("Bullet/Enemy Collision - Bullet hits enemy at center midpoint", function()
   var enemyCenterCoordinates = calculateCenterCoordinates(enemy.currentPosition, enemy.dimension);
   
   var bullet = new Bullet();
-  bullet.currentPosition = new Coordinates(enemyCenterCoordinates.posX, enemyCenterCoordinates.posY);
+  bullet.centerCoordinates = new Coordinates(enemyCenterCoordinates.posX, enemyCenterCoordinates.posY);
   ok(bulletHitEnemy(bullet, enemy), "A collision should occur");
 });
 
@@ -85,7 +85,7 @@ test("Bullet/Enemy Collision - Bullet misses enemy left boundary", function() {
   
   var bullet = new Bullet();
   var midPointCoordinates = calculateMidPointCoordinates(enemyRectCoordinates.topLeft, enemyRectCoordinates.bottomLeft);
-  bullet.currentPosition = new Coordinates(midPointCoordinates.posX - 10, midPointCoordinates.posY);
+  bullet.centerCoordinates = new Coordinates(midPointCoordinates.posX - 10, midPointCoordinates.posY);
   ok(!bulletHitEnemy(bullet, enemy), "A collision should not occur");
 });
 
@@ -97,7 +97,7 @@ test("Bullet/Enemy Collision - Bullet misses enemy right boundary", function() {
   
   var bullet = new Bullet();
   var midPointCoordinates = calculateMidPointCoordinates(enemyRectCoordinates.topRight, enemyRectCoordinates.bottomRight);
-  bullet.currentPosition = new Coordinates(midPointCoordinates.posX + 10, midPointCoordinates.posY);
+  bullet.centerCoordinates = new Coordinates(midPointCoordinates.posX + 10, midPointCoordinates.posY);
   ok(!bulletHitEnemy(bullet, enemy), "A collision should not occur");
 });
 
