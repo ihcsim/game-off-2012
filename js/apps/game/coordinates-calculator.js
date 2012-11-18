@@ -23,3 +23,9 @@ function calculateRectCoordinates(position, dimension){
   };
   return coordinates;
 }
+
+function calculateMidpointCoordinates(coordinate1, coordinate2){
+  var midpointPosX = (coordinate1.posX + coordinate2.posX)/2;
+  var midpointPosY = (coordinate1.posY + coordinate2.posY)/2;
+  return new Coordinates(midpointPosX, midpointPosY);
+}
