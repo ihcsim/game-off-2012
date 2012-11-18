@@ -25,17 +25,31 @@ function playerCollideWithObstacles(player, obstacles){
 
 function bulletHitEnemies(bullet, enemies) {
   $.each(enemies, function(index, enemy){
-    if(collideWithTarget(bullet, enemy) && !enemy.isDead())
-      bullet.inActive();
-      enemy.die();
+    if(bulletHitEnemy(bullet, enemy))
+      return true;
   });
-};
+  return false;
+}
 
-function bulletHitObstacle(bullet, obstacles) {
+function bulletHitEnemy(bullet, enemy) {
+  if(collideWithTarget(bullet, enemy) && !enemy.isDead())
+    return true;
+  return false;
+}
+
+
+function bulletHitObstacles(bullet, obstacles) {
   $.each(obstacles, function(index, obstacle){
     if(collideWithTarget(bullet, obstacle))
-      bullet.inActive();
+      return true;
   });
+  return false;
+}
+
+function bulletHitObstacle(bullet, obstacle) {
+  if(collideWithObstacle(bullet, obstacle))
+    return true;
+  return false;
 }
 
 function bulletOutOfBounds(bullet) {
@@ -43,9 +57,16 @@ function bulletOutOfBounds(bullet) {
     bullet.inActive();
 }
 
-function collideWithTarget(source, target) {
-  return source.currentPosition.posX <= target.currentPosition.posX + target.dimension.width &&
-      source.currentPosition.posX >= target.currentPosition.posX &&
-      source.currentPosition.posY <= target.currentPosition.posY + target.dimension.height &&
-      source.currentPosition.posY >= target.currentPosition.posY;
+function collideWithObstacle(source, obstacle) {
+  return source.currentPosition.posX <= obstacle.position.posX + obstacle.dimension.width &&
+      source.currentPosition.posX >= obstacle.position.posX &&
+      source.currentPosition.posY <= obstacle.position.posY + obstacle.dimension.height &&
+      source.currentPosition.posY >= obstacle.position.posY;
+}
+
+function collideWithEnemy(source, enemy) {
+  return source.currentPosition.posX <= enemy.currentPosition.posX + enemy.dimension.width &&
+      source.currentPosition.posX >= enemy.currentPosition.posX &&
+      source.currentPosition.posY <= enemy.currentPosition.posY + enemy.dimension.height &&
+      source.currentPosition.posY >= enemy.currentPosition.posY;
 }
