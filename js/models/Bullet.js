@@ -17,6 +17,29 @@ Bullet = function(){
     this.player = player;
   };
   
+  this.activate = function(){
+    this.active();
+    this.initCenterCoordinates();
+    this.updateDirection();
+    this.updatePosition();
+  };
+  
+  this.initCenterCoordinates = function(){
+    this.centerCoordinates.posX = this.player.currentPosition.posX;
+    this.centerCoordinates.posY = this.player.currentPosition.posY;
+  };
+  
+  this.updateDirection = function () {
+    if (this.player.isFacingSouth())
+      this.southBound();
+    else if (this.player.isFacingNorth())
+      this.northBound();
+    else if (this.player.isFacingWest())
+      this.westBound();
+    else if (this.player.isFacingEast())
+      this.eastBound();
+  };
+  
   this.updatePosition = function () {
     this.centerCoordinates.posX += this.xVel;
     this.centerCoordinates.posY += this.yVel;
@@ -27,20 +50,9 @@ Bullet = function(){
     var stageCanvasCtx = stageCanvas[0].getContext("2d");
     stageCanvasCtx.fillStyle = "white";
     stageCanvasCtx.beginPath();
-    stageCanvasCtx.arc(this.centerCoordinates.posX, this.centerCoordinates.posY, this.radius, 0, Math.PI * 2, false);
+    stageCanvasCtx.arc(this.centerCoordinates.posX, this.centerCoordinates.posY, this.dimension.radius, 0, Math.PI * 2, false);
     stageCanvasCtx.closePath();
     stageCanvasCtx.fill();
-  };
-
-  this.updateDirection = function () {
-    if (this.player.isFacingSouth())
-      this.southBound();
-    else if (this.player.isFacingNorth())
-      this.northBound();
-    else if (this.player.isFacingWest())
-      this.westBound();
-    else if (this.player.isFacingEast())
-      this.eastBound();
   };
   
   this.northBound = function(){

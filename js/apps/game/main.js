@@ -45,9 +45,27 @@ $(document).ready(function(){
   
   function update(){
     stage.clear();
-    player.lookAheadNewPosition();
-    if(!playerIsOutOfBounds(player) && !playerWillCollideWithObstacles(player, obstacles))
-      player.commitPosition();
+    
+    if(player.isInMotion()) {
+      player.lookAheadNewPosition();
+      if(!playerIsOutOfBounds(player) && !playerWillCollideWithObstacles(player, obstacles))
+        player.commitPosition();
+    }
+    
+    if(player.isAttacking() && player.hasBullet()) {
+      var activeBullet = player.fireBullet();
+      activeBullet.draw();
+//      if(bulletHitEnemies(activeBullet, enemies)) {
+//        console.log("Hit an enemy!");
+//        activeBullet.inactive();
+//      }
+//      else if(bulletHitObstacles(activeBullet, obstacles)) {
+//        console.log("Block by an obstacle!");
+//        activeBullet.inactive();
+//      }
+      player.haltAttack();
+    }
+    
     $.each(enemies, function(index, enemy){
       enemy.updatePosition();
     });

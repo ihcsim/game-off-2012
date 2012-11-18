@@ -34,6 +34,19 @@ Player = function(spriteSrc, numBullets){
     inMotion = false;
   };
   
+  var attack = false;
+  this.isAttacking = function(){
+    return attack;
+  };
+  
+  this.attack = function(){
+    attack = true;
+  };
+  
+  this.haltAttack = function(){
+    attack = false;
+  };
+  
   this.sprite = new Image();
   this.sprite.src = spriteSrc;
   
@@ -76,26 +89,37 @@ Player = function(spriteSrc, numBullets){
   };
   
   var bullets = new Array();
-  var currentBullet = -1;
   this.loadBullet = function(bullet){
     bullet.setPlayer(this);
     bullets.push(bullet);
   };
-  
+
+  var currentBullet = -1;
   this.hasBullet = function(){
-    return (bullets.length > 0);
+    return (bullets.length > 0 && currentBullet < bullets.length);
   };
   
   this.numBullets = function(){
     return bullets.length;
   };
 
+  this.fireBullet = function(){
+    currentBullet++;
+    var soundEffect = new Audio("audio/action_attack.wav");
+    soundEffect.play();
+    var activeBullet = bullets.shift();
+    activeBullet.activate();
+    return activeBullet;
+  };
+  
   this.executeAction = function(event){
     var keyID = event.keyCode || event.which;
-    if(keyID == 37 ||keyID == 38 || keyID == 39 || keyID == 40)
+    if(keyID == 37 || keyID == 38 || keyID == 39 || keyID == 40)
       this.move();
+    else if(keyID == 32)
+      this.attack();
     
-    if(!this.isInMotion())
+    if(!this.isInMotion() && !this.isAttacking())
       return;
     
     if(keyID == 38) { // up
@@ -114,10 +138,17 @@ Player = function(spriteSrc, numBullets){
       this.turnWest();
       event.preventDefault();
     }
+    else if(keyID == 32) {
+      this.attack();
+      event.preventDefault();
+    }
   };
 
   this.haltAction = function(event){
-    this.stop();
+    if(this.isInMotion())
+      this.stop();
+    if(this.isAttacking())
+      this.haltAttack();
   };
 
   this.lookAheadNewPosition = function () {
