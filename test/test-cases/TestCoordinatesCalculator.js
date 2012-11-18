@@ -81,27 +81,27 @@ test("Coordinates Calculator - Calculate rectangle bottom-right y-coordinate", f
 test("Coordinates Calculator - Calculate midpoint x-coordinate #1", function() {
   var coord1 = new Coordinates(20, 20);
   var coord2 = new Coordinates(20, 40);
-  var midpointCoord  = calculateMidpointCoordinates(coord1, coord2); 
+  var midpointCoord  = calculateMidPointCoordinates(coord1, coord2); 
   ok(midpointCoord.posX == 20, "Incorrect midpoint x-coordinate");
 });
 
 test("Coordinates Calculator - Calculate midpoint y-coordinate #2", function() {
   var coord1 = new Coordinates(20, 20);
   var coord2 = new Coordinates(20, 40);
-  var midpointCoord  = calculateMidpointCoordinates(coord1, coord2); 
+  var midpointCoord  = calculateMidPointCoordinates(coord1, coord2); 
   ok(midpointCoord.posY == 30, "Incorrect midpoint y-coordinate");
 });
 
 test("Coordinates Calculator - Calculate midpoint x-coordinate #3", function() {
   var coord1 = new Coordinates(0, 0);
   var coord2 = new Coordinates(20, 40);
-  var midpointCoord  = calculateMidpointCoordinates(coord1, coord2); 
+  var midpointCoord  = calculateMidPointCoordinates(coord1, coord2); 
   ok(midpointCoord.posX == 10, "Incorrect midpoint x-coordinate");
 });
 
 test("Coordinates Calculator - Calculate midpoint y-coordinate #4", function() {
   var coord1 = new Coordinates(0, 00);
   var coord2 = new Coordinates(20, 40);
-  var midpointCoord  = calculateMidpointCoordinates(coord1, coord2); 
+  var midpointCoord  = calculateMidPointCoordinates(coord1, coord2); 
   ok(midpointCoord.posY == 20, "Incorrect midpoint y-coordinate");
 });
