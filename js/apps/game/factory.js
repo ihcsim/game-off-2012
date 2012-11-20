@@ -1,14 +1,14 @@
-var spriteSrc = "images/sprite.png";
+var SPRITE_IMG_SRC = "images/sprite.png";
 function initStage(){
-  return new Stage(spriteSrc);
+  return new Stage(SPRITE_IMG_SRC);
 }
 
 function initPlayer(){
-  return new Player(spriteSrc);
+  return new Player(SPRITE_IMG_SRC);
 }
 
 function initPlayerWithBullets(numBullets){
-  player = initPlayer(spriteSrc);
+  player = initPlayer(SPRITE_IMG_SRC);
   for(var i = 0; i < numBullets; i++)
     player.loadBullet(new Bullet());
   return player;
@@ -22,7 +22,7 @@ function initEnemies(numEnemies){
 }
 
 function initEnemy(){
-  return new Enemy(spriteSrc);
+  return new Enemy(SPRITE_IMG_SRC);
 }
 
 function initBullet(){
