@@ -104,6 +104,9 @@ Player = function(spriteSrc, numBullets){
   };
 
   this.fireBullet = function(){
+    if(!this.hasBullet())
+      return;
+    
     currentBullet++;
     var soundEffect = new Audio("audio/action_attack.wav");
     soundEffect.play();
