@@ -5,7 +5,7 @@ test("Player/Bullet Direction- If player faces north, bullet shall travel north"
   player.loadBullet(bullet);
   
   player.turnNorth();
-  bullet.updateDirection();
+  bullet.setCourse();
   ok(bullet.isNorthBound(), "Bullet is not travelling north");
 });
 
@@ -16,7 +16,7 @@ test("Player/Bullet Direction- If player faces south, bullet shall travel south"
   player.loadBullet(bullet);
   
   player.turnSouth();
-  bullet.updateDirection();
+  bullet.setCourse();
   ok(bullet.isSouthBound(), "Bullet is not travelling south");
 });
 
@@ -27,7 +27,7 @@ test("Player/Bullet Direction- If player faces east, bullet shall travel east", 
   player.loadBullet(bullet);
   
   player.turnEast();
-  bullet.updateDirection();
+  bullet.setCourse();
   ok(bullet.isEastBound(), "Bullet is not travelling east");
 });
 
@@ -38,6 +38,6 @@ test("Player/Bullet Direction- If player faces east, bullet shall travel west", 
   player.loadBullet(bullet);
   
   player.turnWest();
-  bullet.updateDirection();
+  bullet.setCourse();
   ok(bullet.isWestBound(), "Bullet is not travelling west");
 });
