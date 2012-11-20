@@ -40,6 +40,10 @@ $(document).ready(function(){
       $.each(enemies, function(index, enemy){
         enemy.draw();
       });
+      $.each(activeBullets, function(index, bullet){
+        if(bullet.isActive())
+          bullet.draw();
+      });
       requestAnimationFrame(loop);
     }
   }
@@ -62,11 +66,9 @@ $(document).ready(function(){
     $.each(activeBullets, function(index, bullet){
       if(!bullet.isActive())
         return;
-        
       bullet.updateVelocity();
-      bullet.draw();
-      checkIfBulletHitEnemies(bullet, enemies);
-      checkIfBulletHitObstacles(bullet, obstacles);
+      decommissionBulletAndEnemyOnShot(bullet, enemies);
+      decommissionBulletIfHitObstacles(bullet, obstacles);
     });
     
     $.each(enemies, function(index, enemy){

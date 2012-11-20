@@ -34,7 +34,7 @@ function playerWillCollideWithObstacle(player, obstacle){
           newCoords.posY <= obstacle.coordinates.bottomLeft.posY);
 }
 
-function checkIfBulletHitEnemies(bullet, enemies) {
+function decommissionBulletAndEnemyOnShot(bullet, enemies) {
   $.each(enemies, function(index, enemy){
     if(bulletHitEnemy(bullet, enemy)) {
       bullet.inactive();
@@ -50,7 +50,7 @@ function bulletHitEnemy(bullet, enemy) {
 }
 
 
-function checkIfBulletHitObstacles(bullet, obstacles) {
+function decommissionBulletIfHitObstacles(bullet, obstacles) {
   $.each(obstacles, function(index, obstacle){
     if(bulletHitObstacle(bullet, obstacle))
       bullet.inactive();
