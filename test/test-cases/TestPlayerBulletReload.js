@@ -5,28 +5,24 @@ test("Player/Bullet Reload- Player has no bullet without a re-load", function() 
 });
 
 test("Player/Bullet Reload- Player has bullet on re-load", function() {
-  var spriteSrc = "../images/sprite.png";
-  var player = new Player(spriteSrc);
-  player.loadBullet(new Bullet());
+  var numBullets = 1;
+  var player = initPlayerWithBullets(numBullets);
   ok(player.hasBullet(), "Player should have bullet on re-load");
 });
 
 test("Player/Bullet Reload- Player has 1 bullet on 1 re-load", function() {
-  var spriteSrc = "../images/sprite.png";
-  var player = new Player(spriteSrc);
-  player.loadBullet(new Bullet());
+  var numBullets = 1;
+  var player = initPlayerWithBullets(numBullets);
   ok(player.numBullets() == 1, "Player should have 1 bullet");
 });
 
 test("Player/Bullet Reload- Player has 2 bullets on 2 re-loads", function() {
-  var spriteSrc = "../images/sprite.png";
-  var player = new Player(spriteSrc);
-  player.loadBullet(new Bullet());
-  player.loadBullet(new Bullet());
+  var numBullets = 2;
+  var player = initPlayerWithBullets(numBullets);
   ok(player.numBullets() == 2, "Player should have 2 bullets");
 });
 
-test("Player/Bullet Reload- Reload 3 bullets using factory method", function() {
+test("Player/Bullet Reload- Player has 3 bullets on 3 re-loads", function() {
   var numBullets = 3;
   var player = initPlayerWithBullets(numBullets);
   ok(player.numBullets() == 3, "Player should have 3 bullets");
