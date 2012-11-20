@@ -125,7 +125,7 @@ Enemy = function(spriteSrc){
   }
   
   this.die = function () {
-    var soundEffect = new Audio("audio/dying.wav");
+    var soundEffect = new Audio("audio/state_decommission.wav");
     soundEffect.play();
     clearInterval(this.moveInterval);
     this.srcX = 185;

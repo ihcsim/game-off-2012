@@ -60,19 +60,13 @@ $(document).ready(function(){
     }
     
     $.each(activeBullets, function(index, bullet){
-      if(bullet.isActive()) {
-        bullet.updateVelocity();
-        bullet.draw();
+      if(!bullet.isActive())
+        return;
         
-        if(bulletHitEnemies(bullet, enemies)) {
-          console.log("Hit an enemy!");
-          bullet.inactive();
-        }
-        else if(bulletHitObstacles(bullet, obstacles)) {
-          console.log("Block by an obstacle!");
-          bullet.inactive();
-        }
-      }
+      bullet.updateVelocity();
+      bullet.draw();
+      checkIfBulletHitEnemies(bullet, enemies);
+      checkIfBulletHitObstacles(bullet, obstacles);
     });
     
     $.each(enemies, function(index, enemy){

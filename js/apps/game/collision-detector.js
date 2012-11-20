@@ -34,13 +34,13 @@ function playerWillCollideWithObstacle(player, obstacle){
           newCoords.posY <= obstacle.coordinates.bottomLeft.posY);
 }
 
-function bulletHitEnemies(bullet, enemies) {
-  var hitTarget = false;
+function checkIfBulletHitEnemies(bullet, enemies) {
   $.each(enemies, function(index, enemy){
-    if(bulletHitEnemy(bullet, enemy))
-      hitTarget = true;
+    if(bulletHitEnemy(bullet, enemy)) {
+      bullet.inactive();
+      enemy.die();
+    }
   });
-  return hitTarget;
 }
 
 function bulletHitEnemy(bullet, enemy) {
@@ -50,13 +50,11 @@ function bulletHitEnemy(bullet, enemy) {
 }
 
 
-function bulletHitObstacles(bullet, obstacles) {
-  var hitTarget = false;
+function checkIfBulletHitObstacles(bullet, obstacles) {
   $.each(obstacles, function(index, obstacle){
     if(bulletHitObstacle(bullet, obstacle))
-      hitTarget = true;
+      bullet.inactive();
   });
-  return hitTarget;
 }
 
 function bulletHitObstacle(bullet, obstacle) {
