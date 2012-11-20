@@ -1,13 +1,13 @@
+var STAGE_TOP_EDGE = 5;
+var STAGE_BOTTOM_EDGE = 570;
+var STAGE_RIGHT_EDGE = 750;
+var STAGE_LEFT_EDGE = 65;
+
 function playerIsOutOfBounds(player) {
-  var topEdge = 5;
-  var bottomEdge = 570;
-  var rightEdge = 750;
-  var leftEdge = 65;
-  
-  var hitLowerBound = (player.newPosition.posY + player.dimension.height) >= bottomEdge;
-  var hitUpperBound = player.newPosition.posY <= topEdge;
-  var hitLeftBound = player.newPosition.posX <= leftEdge;
-  var hitRightBound = (player.newPosition.posX + player.dimension.width) >= rightEdge;
+  var hitLowerBound = (player.newPosition.posY + player.dimension.height) >= STAGE_BOTTOM_EDGE;
+  var hitUpperBound = player.newPosition.posY <= STAGE_TOP_EDGE;
+  var hitLeftBound = player.newPosition.posX <= STAGE_LEFT_EDGE;
+  var hitRightBound = (player.newPosition.posX + player.dimension.width) >= STAGE_RIGHT_EDGE;
   
   return hitLowerBound || hitUpperBound || hitLeftBound || hitRightBound;
 }
@@ -18,15 +18,10 @@ function decommissionBulletIfOutOfBounds(bullet) {
 }
 
 function bulletIsOutOfBound(bullet){
-  var topEdge = 5;
-  var bottomEdge = 570;
-  var rightEdge = 750;
-  var leftEdge = 65;
-  
-  var hitLowerBound = bullet.centerCoordinates.posY  >= bottomEdge;
-  var hitUpperBound = bullet.centerCoordinates.posY <= topEdge;
-  var hitLeftBound = bullet.centerCoordinates.posX <= leftEdge;
-  var hitRightBound = bullet.centerCoordinates.posX >= rightEdge;
+  var hitLowerBound = bullet.centerCoordinates.posY  >= STAGE_BOTTOM_EDGE;
+  var hitUpperBound = bullet.centerCoordinates.posY <= STAGE_TOP_EDGE;
+  var hitLeftBound = bullet.centerCoordinates.posX <= STAGE_LEFT_EDGE;
+  var hitRightBound = bullet.centerCoordinates.posX >= STAGE_RIGHT_EDGE;
   return hitLowerBound || hitUpperBound || hitLeftBound || hitRightBound;
 }
 
