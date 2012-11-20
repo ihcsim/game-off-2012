@@ -35,6 +35,8 @@ $(document).ready(function(){
   function loop(){
     if(isPlaying) {
       update();
+      
+      stage.clear();
       stage.draw();
       player.draw();
       $.each(enemies, function(index, enemy){
@@ -49,8 +51,6 @@ $(document).ready(function(){
   }
   
   function update(){
-    stage.clear();
-    
     if(player.isInMotion()) {
       player.lookAheadNewPosition();
       if(!playerIsOutOfBounds(player) && !playerWillCollideWithObstacles(player, obstacles))
