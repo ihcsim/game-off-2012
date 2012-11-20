@@ -35,19 +35,22 @@ $(document).ready(function(){
   function loop(){
     if(isPlaying) {
       update();
-      
-      stage.clear();
-      stage.draw();
-      player.draw();
-      $.each(enemies, function(index, enemy){
-        enemy.draw();
-      });
-      $.each(activeBullets, function(index, bullet){
-        if(bullet.isActive())
-          bullet.draw();
-      });
+      drawFrame();
       requestAnimationFrame(loop);
     }
+  }
+  
+  function drawFrame(){
+    stage.clear();
+    stage.draw();
+    player.draw();
+    $.each(enemies, function(index, enemy){
+      enemy.draw();
+    });
+    $.each(activeBullets, function(index, bullet){
+      if(bullet.isActive())
+        bullet.draw();
+    });
   }
   
   function update(){
