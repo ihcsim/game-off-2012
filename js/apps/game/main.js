@@ -55,22 +55,24 @@ $(document).ready(function(){
     
     if(player.isAttacking() && player.hasBullet()) {
       var activeBullet = player.fireBullet();
-      if(bulletHitEnemies(activeBullet, enemies)) {
-        console.log("Hit an enemy!");
-        activeBullet.inactive();
-      }
-      else if(bulletHitObstacles(activeBullet, obstacles)) {
-        console.log("Block by an obstacle!");
-        activeBullet.inactive();
-      }
       player.haltAttack();
       activeBullets.push(activeBullet);
     }
     
     $.each(activeBullets, function(index, bullet){
-      if(bullet.isActive())
+      if(bullet.isActive()) {
         bullet.updateVelocity();
         bullet.draw();
+        
+        if(bulletHitEnemies(bullet, enemies)) {
+          console.log("Hit an enemy!");
+          bullet.inactive();
+        }
+        else if(bulletHitObstacles(bullet, obstacles)) {
+          console.log("Block by an obstacle!");
+          bullet.inactive();
+        }
+      }
     });
     
     $.each(enemies, function(index, enemy){
