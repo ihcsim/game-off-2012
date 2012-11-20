@@ -70,8 +70,11 @@ $(document).ready(function(){
       if(!bullet.isActive())
         return;
       bullet.updatePosition();
-      decommissionBulletAndEnemyOnShot(bullet, enemies);
-      decommissionBulletIfHitObstacles(bullet, obstacles);
+      decommissionBulletIfOutOfBounds(bullet);
+      if(bullet.isActive())
+        decommissionBulletAndEnemyOnShot(bullet, enemies);
+      if(bullet.isActive())
+        decommissionBulletIfHitObstacles(bullet, obstacles);
     });
     
     $.each(enemies, function(index, enemy){

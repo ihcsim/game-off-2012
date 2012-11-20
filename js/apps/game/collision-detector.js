@@ -12,9 +12,22 @@ function playerIsOutOfBounds(player) {
   return hitLowerBound || hitUpperBound || hitLeftBound || hitRightBound;
 }
 
-function bulletIsOutOfBounds(bullet) {
-  if (outOfBounds(bullet, bullet.currentPosition.posX, bullet.currentPosition.posY))
-    bullet.inActive();
+function decommissionBulletIfOutOfBounds(bullet) {
+  if (bulletIsOutOfBound(bullet))
+    bullet.inactive();
+}
+
+function bulletIsOutOfBound(bullet){
+  var topEdge = 5;
+  var bottomEdge = 570;
+  var rightEdge = 750;
+  var leftEdge = 65;
+  
+  var hitLowerBound = bullet.centerCoordinates.posY  >= bottomEdge;
+  var hitUpperBound = bullet.centerCoordinates.posY <= topEdge;
+  var hitLeftBound = bullet.centerCoordinates.posX <= leftEdge;
+  var hitRightBound = bullet.centerCoordinates.posX >= rightEdge;
+  return hitLowerBound || hitUpperBound || hitLeftBound || hitRightBound;
 }
 
 function playerWillCollideWithObstacles(player, obstacles){
