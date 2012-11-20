@@ -3,7 +3,7 @@ $(document).ready(function(){
   var requestAnimationFrame = null;
   
   var numBullets = 10;
-  var activeBullets = new Array();
+  var shots = new Array();
   var player = initPlayerWithBullets(numBullets);
   var obstacles = initObstacles();
   
@@ -47,7 +47,7 @@ $(document).ready(function(){
     $.each(enemies, function(index, enemy){
       enemy.draw();
     });
-    $.each(activeBullets, function(index, bullet){
+    $.each(shots, function(index, bullet){
       if(bullet.isActive())
         bullet.draw();
     });
@@ -60,13 +60,14 @@ $(document).ready(function(){
         player.commitPosition();
     }
     
-    if(player.isAttacking() && player.hasBullet()) {
-      var activeBullet = player.fireBullet();
+    if(player.isAttacking()) {
+      var shot = player.fireBullet();
+      if(shot)
+        shots.push(shot);
       player.haltAttack();
-      activeBullets.push(activeBullet);
     }
     
-    $.each(activeBullets, function(index, bullet){
+    $.each(shots, function(index, bullet){
       if(!bullet.isActive())
         return;
       bullet.updatePosition();
