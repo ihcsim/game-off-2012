@@ -66,7 +66,7 @@ $(document).ready(function(){
     $.each(activeBullets, function(index, bullet){
       if(!bullet.isActive())
         return;
-      bullet.updateVelocity();
+      bullet.updatePosition();
       decommissionBulletAndEnemyOnShot(bullet, enemies);
       decommissionBulletIfHitObstacles(bullet, obstacles);
     });

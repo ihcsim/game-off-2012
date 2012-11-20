@@ -20,6 +20,7 @@ Bullet = function(){
   this.activate = function(){
     this.active();
     this.initCenterCoordinates();
+    this.setCourse();
   };
   
   this.initCenterCoordinates = function(){
@@ -28,11 +29,10 @@ Bullet = function(){
   };
   
   this.updateVelocity = function(){
-    this.updateDirection();
     this.updatePosition();
   };
   
-  this.updateDirection = function () {
+  this.setCourse = function () {
     if (this.player.isFacingSouth())
       this.southBound();
     else if (this.player.isFacingNorth())
