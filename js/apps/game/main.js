@@ -34,7 +34,7 @@ $(document).ready(function(){
   
   function loop(){
     if(isPlaying) {
-      update();
+      updateWorld();
       drawFrame();
       requestAnimationFrame(loop);
     }
@@ -53,7 +53,7 @@ $(document).ready(function(){
     });
   }
   
-  function update(){
+  function updateWorld(){
     if(player.isInMotion()) {
       player.lookAheadNewPosition();
       if(!playerIsOutOfBounds(player) && !playerWillCollideWithObstacles(player, obstacles))
