@@ -35,15 +35,20 @@ function initObstacles(){
   var rockDimensions = 30;
   var bushHeight = 28;
 
-  var obstacle1 = new Obstacle(78, 360, treeWidth, treeHeight);
-  var obstacle2 = new Obstacle(390, 395, treeWidth, treeHeight);
-  var obstacle3 = new Obstacle(415, 102, treeWidth, treeHeight);
-  var obstacle4 = new Obstacle(619, 184,treeWidth, treeHeight);
-  var obstacle5 = new Obstacle(97, 63, rockDimensions, rockDimensions);
-  var obstacle6 = new Obstacle(296, 379, rockDimensions, rockDimensions);
-  var obstacle7 = new Obstacle(295, 25, 150, bushHeight);
-  var obstacle8 = new Obstacle(570, 138, 150, bushHeight);
-  var obstacle9 = new Obstacle(605, 492, 90, bushHeight);
+  var obstacle1 = initObstacle(78, 360, treeWidth, treeHeight);
+  var obstacle2 = initObstacle(390, 395, treeWidth, treeHeight);
+  var obstacle3 = initObstacle(415, 102, treeWidth, treeHeight);
+  var obstacle4 = initObstacle(619, 184,treeWidth, treeHeight);
+  var obstacle5 = initObstacle(97, 63, rockDimensions, rockDimensions);
+  var obstacle6 = initObstacle(296, 379, rockDimensions, rockDimensions);
+  var obstacle7 = initObstacle(295, 25, 150, bushHeight);
+  var obstacle8 = initObstacle(570, 138, 150, bushHeight);
+  var obstacle9 = initObstacle(605, 492, 90, bushHeight);
   var obstacles = [obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6, obstacle7, obstacle8, obstacle9];
   return obstacles;
 }
+
+function initObstacle(posX, posY, width, height){
+  return new Obstacle(posX, posY, width, height);
+}
+
