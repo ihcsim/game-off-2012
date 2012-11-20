@@ -20,13 +20,16 @@ Bullet = function(){
   this.activate = function(){
     this.active();
     this.initCenterCoordinates();
-    this.updateDirection();
-    this.updatePosition();
   };
   
   this.initCenterCoordinates = function(){
     this.centerCoordinates.posX = this.player.currentPosition.posX;
     this.centerCoordinates.posY = this.player.currentPosition.posY;
+  };
+  
+  this.updateVelocity = function(){
+    this.updateDirection();
+    this.updatePosition();
   };
   
   this.updateDirection = function () {
