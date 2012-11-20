@@ -1,6 +1,5 @@
+var player = initPlayer();
 test("Player look-ahead new position - Calculate player position x-coordinate after turning north #1", function() {
-  var spriteSrc = "../images/sprite.png";
-  var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnNorth();
   player.move();
@@ -9,8 +8,6 @@ test("Player look-ahead new position - Calculate player position x-coordinate af
 });
 
 test("Player look-ahead new position - Calculate player position y-coordinate after turning north #1", function() {
-  var spriteSrc = "../images/sprite.png";
-  var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnNorth();
   player.move();
@@ -19,8 +16,6 @@ test("Player look-ahead new position - Calculate player position y-coordinate af
 });
 
 test("Player look-ahead new position - Calculate player position x-coordinate after turning south", function() {
-  var spriteSrc = "../images/sprite.png";
-  var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnSouth();
   player.move();
@@ -29,8 +24,6 @@ test("Player look-ahead new position - Calculate player position x-coordinate af
 });
 
 test("Player look-ahead new position - Calculate player position y-coordinate  after turning south", function() {
-  var spriteSrc = "../images/sprite.png";
-  var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnSouth();
   player.move();
@@ -40,8 +33,6 @@ test("Player look-ahead new position - Calculate player position y-coordinate  a
 
 
 test("Player look-ahead new position - Calculate player position x-coordinate after turning east", function() {
-  var spriteSrc = "../images/sprite.png";
-  var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnEast();
   player.move();
@@ -50,8 +41,6 @@ test("Player look-ahead new position - Calculate player position x-coordinate af
 });
 
 test("Player look-ahead new position - Calculate player position y-coordinate after turning east", function() {
-  var spriteSrc = "../images/sprite.png";
-  var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnEast();
   player.move();
@@ -60,8 +49,6 @@ test("Player look-ahead new position - Calculate player position y-coordinate af
 });
 
 test("Player look-ahead new position - Calculate player position after turning west", function() {
-  var spriteSrc = "../images/sprite.png";
-  var player = new Player(spriteSrc);
   player.currentPosition = new Coordinates(10, 10);
   player.turnWest();
   player.move();
