@@ -17,8 +17,12 @@ function initPlayerWithBullets(numBullets){
 function initEnemies(numEnemies){
   var enemies = new Array();
   for (var index = 0; index < numEnemies; index++) 
-    enemies[index] = new Enemy(spriteSrc);
+    enemies[index] = initEnemy();
   return enemies;
+}
+
+function initEnemy(){
+  return new Enemy(spriteSrc);
 }
 
 function initBullet(){
