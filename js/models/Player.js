@@ -96,7 +96,7 @@ Player = function(spriteSrc, numBullets){
 
   var currentBullet = -1;
   this.hasBullet = function(){
-    return (bullets.length > 0 && currentBullet < bullets.length);
+    return (bullets.length > 0);
   };
   
   this.numBullets = function(){
