@@ -107,13 +107,17 @@ Player = function(spriteSrc, numBullets){
     if(!this.hasBullet())
       return;
     
+    playSoundEffect();
     currentBullet++;
-    var soundEffect = new Audio("audio/action_attack.wav");
-    soundEffect.play();
     var activeBullet = bullets.shift();
     activeBullet.activate();
     return activeBullet;
   };
+  
+  function playSoundEffect(){
+    var soundEffect = new Audio("audio/action_attack.wav");
+    soundEffect.play();
+  }
   
   this.executeAction = function(event){
     var keyID = event.keyCode || event.which;

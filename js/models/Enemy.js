@@ -125,12 +125,16 @@ Enemy = function(spriteSrc){
   }
   
   this.die = function () {
-    var soundEffect = new Audio("audio/state_decommission.wav");
-    soundEffect.play();
+    playSoundEffect();
     clearInterval(this.moveInterval);
     this.srcX = 185;
     isDead = true;
   };
+  
+  function playSoundEffect(){
+    var soundEffect = new Audio("audio/state_decommission.wav");
+    soundEffect.play();
+  }
   
   this.isDead = function(){
     return isDead;
