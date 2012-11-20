@@ -27,11 +27,7 @@ Bullet = function(){
     this.centerCoordinates.posX = this.player.currentPosition.posX;
     this.centerCoordinates.posY = this.player.currentPosition.posY;
   };
-  
-  this.updateVelocity = function(){
-    this.updatePosition();
-  };
-  
+
   this.setCourse = function () {
     if (this.player.isFacingSouth())
       this.southBound();
