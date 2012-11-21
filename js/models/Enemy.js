@@ -150,4 +150,13 @@ Enemy = function(spriteSrc){
         this.currentPosition.posX, this.currentPosition.posY, 
         this.dimension.width, this.dimension.height);
   };
+  
+  this.clear = function(){
+    var stageCanvas = $("#stage-canvas");
+    var stageCanvasCtx = stageCanvas[0].getContext("2d");
+    console.log(this.currentPosition);
+    stageCanvasCtx.clearRect(
+        this.currentPosition.posX, this.currentPosition.posY, 
+        this.dimension.width, this.dimension.height);
+  };
 };

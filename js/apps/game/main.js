@@ -10,6 +10,9 @@ $(document).ready(function(){
   var numEnemies = 5;
   var enemies = initEnemies(numEnemies);
   
+  initEnemiesRespawnEngine(enemies);
+  setUpGarbageCollectionTicker();
+  
   var stage = initStage();
   if(stage.isReady() && player.isReady())
     initGame();
