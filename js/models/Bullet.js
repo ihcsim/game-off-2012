@@ -24,8 +24,9 @@ Bullet = function(){
   };
   
   this.initCenterCoordinates = function(){
-    this.centerCoordinates.posX = this.player.currentPosition.posX;
-    this.centerCoordinates.posY = this.player.currentPosition.posY;
+    var playerCenterCoord = this.player.calculateCenterCoordinates();
+    this.centerCoordinates.posX = playerCenterCoord.posX;
+    this.centerCoordinates.posY = playerCenterCoord.posY;
   };
 
   this.setCourse = function () {
