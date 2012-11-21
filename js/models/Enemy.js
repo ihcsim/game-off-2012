@@ -130,7 +130,7 @@ Enemy = function(spriteSrc){
     this.srcX = 185;
     isDead = true;
   };
-  
+
   function playSoundEffect(){
     var soundEffect = new Audio("audio/state_decommission.wav");
     soundEffect.play();
@@ -154,7 +154,6 @@ Enemy = function(spriteSrc){
   this.clear = function(){
     var stageCanvas = $("#stage-canvas");
     var stageCanvasCtx = stageCanvas[0].getContext("2d");
-    console.log(this.currentPosition);
     stageCanvasCtx.clearRect(
         this.currentPosition.posX, this.currentPosition.posY, 
         this.dimension.width, this.dimension.height);
