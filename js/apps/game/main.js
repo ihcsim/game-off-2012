@@ -11,6 +11,7 @@ $(document).ready(function(){
   var enemies = initEnemies(numEnemies);
   initEnemiesRespawnEngine(enemies);
   setUpGarbageCollectionTicker();
+  setUpRespawnTicker();
   
   var stage = initStage();
   if(stage.isReady() && player.isReady())

@@ -1,4 +1,5 @@
 var GARBAGE_COLLECTION_INTERVAL_MS = 4000;
+var RESPAWN_INTERVAL_MS = 5000;
 
 var activeEnemies = new Array();
 var maxNumActiveEnemies = 0;
@@ -8,9 +9,13 @@ function initEnemiesRespawnEngine(enemies){
   maxNumActiveEnemies = activeEnemies.length;
 }
 
+function setUpRespawnTicker(){
+  setInterval(respawnEnemies, RESPAWN_INTERVAL_MS);
+}
+
 function respawnEnemies(){
-  var respawnCount = respawnCount();
-  for(var i = 0; i < respawnCount; i++)
+  var respawnCounts = respawnCount();
+  for(var i = 0; i < respawnCounts; i++)
     activeEnemies.push(initEnemy());
 }
 
@@ -28,8 +33,8 @@ function setUpGarbageCollectionTicker(){
 function clearDeadEnemies(){
   for(var index = activeEnemies.length - 1; index >= 0; index--){
     if(activeEnemies[index].isDead()) {
-      activeEnemies.splice(index, 1);
       activeEnemies[index].clear();
+      activeEnemies.splice(index, 1);
     }
   }
 }
