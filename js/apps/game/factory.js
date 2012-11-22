@@ -10,7 +10,7 @@ function initPlayer(){
 function initPlayerWithBullets(numBullets){
   player = initPlayer(SPRITE_IMG_SRC);
   for(var i = 0; i < numBullets; i++)
-    player.loadBullet(new Bullet());
+    player.loadBullet(initBullet(player));
   return player;
 }
 
@@ -25,8 +25,8 @@ function initEnemy(){
   return new Enemy(SPRITE_IMG_SRC);
 }
 
-function initBullet(){
-  return new Bullet();
+function initBullet(player){
+  return new Bullet(player);
 }
 
 var OBSTACLE_TREE_WIDTH = 65;
