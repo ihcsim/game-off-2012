@@ -25,7 +25,7 @@ Coming soon!
 
 ## License
 
-Coming soon!
+With the exception of the image and audio files, all HTML, CSS, JavaScript, JQuery, QUnit codes are free for re-use and modification. For permission to re-use image and audio files, contact [Pablo Farias Navarro](http://www.udemy.com/u/pablofariasnavarro/).
 
 ## GitHub Game Off, 2012
 
