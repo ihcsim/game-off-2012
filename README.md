@@ -1,6 +1,16 @@
-Here at GitHub, we're no strangers to hosting or sponsoring hackathons. With the growing number of games and game development resources on GitHub, we thought it was about time to throw our very own game jam!
+## Introduction
 
-## The Challenge
+This is my first attempt to create a 2D [brawler] (http://en.wikipedia.org/wiki/Beat_'em_up) game using strictly HTML5 and JavaScript.
+
+## Game Instructions
+
+Coming soon!
+
+## Questions/Comments/Feedback
+
+Find me on [Tiwtter] (https://twitter.com/IvanHCSim)
+
+## GitHub Game Off, 2012
 
 You have the entire month of November to create a **web-based** game *loosely* built around one or more of the following themes:
 
