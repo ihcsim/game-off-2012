@@ -51,3 +51,7 @@ function initObstacle(posX, posY, width, height){
   return new Obstacle(posX, posY, width, height);
 }
 
+function initTimer(countDownDurationInMs){
+  return new Timer(countDownDurationInMs);
+}
+
