@@ -1,4 +1,4 @@
-Player = function(spriteSrc, numBullets){
+Player = function(spriteSrc, initNumBullets){
   var DEFAULT_SPRITE_POS_X = 0;
   var DEFAULT_SPRITE_POS_Y = 600;
   var DEFAULT_PLAYER_WIDTH = 35;
@@ -88,9 +88,14 @@ Player = function(spriteSrc, numBullets){
     currentDirection = direction.WEST;
   };
   
+  var maxNumBullets = initNumBullets;
   var bullets = new Array();
   this.loadBullet = function(bullet){
     bullets.push(bullet);
+  };
+  this.reloadAllBullets = function(){
+    for(var index = 0; index < maxNumBullets; index++)
+      bullets.push(initBullet(this));
   };
 
   var currentBullet = -1;
@@ -124,29 +129,23 @@ Player = function(spriteSrc, numBullets){
       this.move();
     else if(keyID == 32)
       this.attack();
-    
-    if(!this.isInMotion() && !this.isAttacking())
+    else if(keyID == 82)
+      this.reloadAllBullets();
+      
+    if(!this.isInMotion())
       return;
     
     if(keyID == 38) { // up
       this.turnNorth();
-      event.preventDefault();
     } 
     else if(keyID == 40) { // down
       this.turnSouth();
-      event.preventDefault();
     }
     else if(keyID == 39) { // right
       this.turnEast();
-      event.preventDefault();
     }
     else if(keyID == 37) { // left
       this.turnWest();
-      event.preventDefault();
-    }
-    else if(keyID == 32) {
-      this.attack();
-      event.preventDefault();
     }
   };
 

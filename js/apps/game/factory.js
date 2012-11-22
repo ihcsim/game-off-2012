@@ -3,14 +3,13 @@ function initStage(){
   return new Stage(SPRITE_IMG_SRC);
 }
 
-function initPlayer(){
-  return new Player(SPRITE_IMG_SRC);
+function initPlayer(maxNumBullets){
+  return new Player(SPRITE_IMG_SRC, maxNumBullets);
 }
 
 function initPlayerWithBullets(numBullets){
-  player = initPlayer(SPRITE_IMG_SRC);
-  for(var i = 0; i < numBullets; i++)
-    player.loadBullet(initBullet(player));
+  player = initPlayer(numBullets);
+  player.reloadAllBullets();
   return player;
 }
 

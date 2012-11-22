@@ -33,8 +33,7 @@ test("Player/Bullet Reload- Player has 3 bullets on full re-load", function() {
   var player = initPlayerWithBullets(numBullets);
   for(var index = 0; index < numBullets; index++)
     player.fireBullet();
-  for(var index = 0; index < numBullets; index++)
-    player.loadBullet(initBullet(player));
+  player.reloadAllBullets();
   ok(player.numBullets() == 3, "Player should have 3 bullets on full re-load");
 });
 
@@ -43,7 +42,6 @@ test("Player/Bullet Reload- Player has 5 bullets on full re-load", function() {
   var player = initPlayerWithBullets(numBullets);
   for(var index = 0; index < numBullets; index++)
     player.fireBullet();
-  for(var index = 0; index < numBullets; index++)
-    player.loadBullet(initBullet(player));
+  player.reloadAllBullets();
   ok(player.numBullets() == 5, "Player should have 5 bullets on full re-load");
 });
