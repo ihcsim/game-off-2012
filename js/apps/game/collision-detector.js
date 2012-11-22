@@ -2,6 +2,7 @@ var STAGE_TOP_EDGE = 5;
 var STAGE_BOTTOM_EDGE = 570;
 var STAGE_RIGHT_EDGE = 750;
 var STAGE_LEFT_EDGE = 65;
+var killCount = 0;
 
 function playerIsOutOfBounds(player) {
   var hitLowerBound = (player.newPosition.posY + player.dimension.height) >= STAGE_BOTTOM_EDGE;
@@ -47,6 +48,7 @@ function decommissionBulletAndEnemyOnShot(bullet, enemies) {
     if(bulletHitEnemy(bullet, enemy)) {
       bullet.inactive();
       enemy.die();
+      incrementKillCount();
     }
   });
 }
@@ -55,6 +57,14 @@ function bulletHitEnemy(bullet, enemy) {
   if(bulletCollideWithEnemy(bullet, enemy) && !enemy.isDead())
     return true;
   return false;
+}
+
+function incrementKillCount(){
+  killCount++;
+}
+
+function totalKillCount(){
+  return killCount;
 }
 
 

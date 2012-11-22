@@ -7,11 +7,14 @@ $(document).ready(function(){
   var player = initPlayerWithBullets(numBullets);
   var obstacles = initObstacles();
   
-  var numEnemies = 5;
+  var numEnemies = 1;
   var enemies = initEnemies(numEnemies);
   initEnemiesRespawnEngine(enemies);
   setUpGarbageCollectionTicker();
   setUpRespawnTicker();
+  
+  var gameDuration = 10000;
+  var timer = initTimer(gameDuration);
   
   var stage = initStage();
   if(stage.isReady() && player.isReady())
@@ -36,11 +39,18 @@ $(document).ready(function(){
   }
   
   function loop(){
+    if(timeIsUp())
+      calculateScore(totalKillCount());
+    
     if(isPlaying) {
       updateWorld();
       drawFrame();
       requestAnimationFrame(loop);
     }
+  }
+  
+  function timeIsUp(){
+    return (timer.countDown() == 0);
   }
   
   function drawFrame(){
@@ -79,10 +89,6 @@ $(document).ready(function(){
         decommissionBulletAndEnemyOnShot(bullet, enemies);
       if(bullet.isActive())
         decommissionBulletIfHitObstacles(bullet, obstacles);
-    });
-    
-    $.each(enemies, function(index, enemy){
-      enemy.updatePosition();
     });
   }
 });
