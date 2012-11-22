@@ -8,11 +8,19 @@ Coming soon!
 
 ## Instructions
 
-Coming soon!
+* Gamer's objective is to exterminate as many ghosts as possible before the count down expires.
+* Beware of the ghosts' regular respawns and clones.
+* Use the directional arrow keys to move the main character.
+* Use the 'R' key to reload bullets.
+* Obstacles like the trees, bushes and rocks will block your path.
 
 ## Questions/Comments/Feedback
 
 Find me on [Tiwtter] (https://twitter.com/IvanHCSim)
+
+## Screenshots
+
+Coming soon!
 
 ## License
 
