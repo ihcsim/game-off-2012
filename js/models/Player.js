@@ -125,28 +125,26 @@ Player = function(spriteSrc, initNumBullets){
   
   this.executeAction = function(event){
     var keyID = event.keyCode || event.which;
-    if(keyID == 37 || keyID == 38 || keyID == 39 || keyID == 40)
+    if(keyID == 38) {// up
+      this.turnNorth();
       this.move();
+    }
+    else if(keyID == 40) {// down
+      this.turnSouth();
+      this.move();
+    }
+    else if(keyID == 39) {// right
+      this.turnEast();
+      this.move();
+    }
+    else if(keyID == 37) {// left
+      this.turnWest();
+      this.move();
+    }
     else if(keyID == 32)
       this.attack();
     else if(keyID == 82)
       this.reloadAllBullets();
-      
-    if(!this.isInMotion())
-      return;
-    
-    if(keyID == 38) { // up
-      this.turnNorth();
-    } 
-    else if(keyID == 40) { // down
-      this.turnSouth();
-    }
-    else if(keyID == 39) { // right
-      this.turnEast();
-    }
-    else if(keyID == 37) { // left
-      this.turnWest();
-    }
   };
 
   this.haltAction = function(event){
