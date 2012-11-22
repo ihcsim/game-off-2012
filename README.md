@@ -2,9 +2,9 @@
 
 This is my first attempt to create a 2D ["brawler"] (http://en.wikipedia.org/wiki/Beat_'em_up) game using strictly HTML5 and JavaScript. While the graphic and audio files are borrowed (with permission) from an online [course](http://www.udemy.com/create-a-html5-game-from-scratch/) I took, all the JQuery and Qunit codes are mine.
 
-## Story
+## Plot
 
-Coming soon!
+Finding himself lost in a thick jungle on an unfamiliar planet, Aidan is desperately trying to make contact with *ZEUS*. It shouldn't be long before they discover that his PAV has crushed, and send out a SAR team after him. Hungry and ill-equiped, Aidan hopes that the wait will be brief. Just then, he encounters these weird creatures that respawn and self-clone uncontrollably. Threaten by their intimidating looks, Aidan's rookie instinct got a better hold of him. He turns on his *Bean Blaster* and went berserk! O_O 
 
 ## Instructions
 
@@ -17,7 +17,7 @@ Coming soon!
 
 ## Questions/Comments/Feedback
 
-Find me on [Tiwtter] (https://twitter.com/IvanHCSim)
+Find me on [Twitter] (https://twitter.com/IvanHCSim)
 
 ## Screenshots
 
