@@ -105,10 +105,8 @@ Player = function(spriteSrc, initNumBullets){
   };
 
   this.fireBullet = function(){
-    if(!this.hasBullet()) {
-      console.log("Test");
+    if(!this.hasBullet())
       return;
-    }
     
     playSoundEffect();
     currentBullet++;
