@@ -13,6 +13,7 @@ Coming soon!
 * Use the directional arrow keys to move the main character.
 * Use the 'R' key to reload bullets.
 * Obstacles like the trees, bushes and rocks will block your path.
+* Your total scores will be calculated and presenetd once the count down expires.
 
 ## Questions/Comments/Feedback
 
