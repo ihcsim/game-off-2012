@@ -90,9 +90,6 @@ Player = function(spriteSrc, initNumBullets){
   
   var maxNumBullets = initNumBullets;
   var bullets = new Array();
-  this.loadBullet = function(bullet){
-    bullets.push(bullet);
-  };
   this.reloadAllBullets = function(){
     for(var index = 0; index < maxNumBullets; index++)
       bullets.push(initBullet(this));
@@ -108,8 +105,10 @@ Player = function(spriteSrc, initNumBullets){
   };
 
   this.fireBullet = function(){
-    if(!this.hasBullet())
+    if(!this.hasBullet()) {
+      console.log("Test");
       return;
+    }
     
     playSoundEffect();
     currentBullet++;
