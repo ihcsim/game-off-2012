@@ -90,7 +90,6 @@ Player = function(spriteSrc, numBullets){
   
   var bullets = new Array();
   this.loadBullet = function(bullet){
-    bullet.setPlayer(this);
     bullets.push(bullet);
   };
 

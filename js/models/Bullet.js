@@ -1,4 +1,4 @@
-Bullet = function(){
+Bullet = function(currentPlayer){
   var radius = 2;
   var dimension = new Dimension();
   this.dimension = dimension.CircularDimension(radius);
@@ -12,10 +12,7 @@ Bullet = function(){
   this.yVel = 0;
   this.speed = 6;
   
-  this.player = null;
-  this.setPlayer = function(player){
-    this.player = player;
-  };
+  this.player = currentPlayer;
   
   this.activate = function(){
     this.active();
