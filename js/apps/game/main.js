@@ -12,7 +12,7 @@ $(document).ready(function(){
   initEnemiesRespawnEngine(enemies);
   setUpGarbageCollectionTicker();
   setUpRespawnTicker();
-  
+ 
   initEnemiesCloneEngine(enemies);
   setUpCloneTicker();
   
@@ -82,6 +82,10 @@ $(document).ready(function(){
         shots.push(shot);
       player.haltAttack();
     }
+    
+    $.each(enemies, function(index, enemy){
+      enemy.updatePosition();
+    });
     
     $.each(shots, function(index, bullet){
       if(!bullet.isActive())
