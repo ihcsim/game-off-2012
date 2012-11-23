@@ -139,6 +139,12 @@ Enemy = function(spriteSrc){
   this.isDead = function(){
     return isDead;
   };
+  
+  this.clone = function(){
+    var clone = initEnemy();
+    clone.currentPosition = new Coordinates(this.currentPosition.posX, this.currentPosition.posY);
+    return clone;
+  };
 
   
   this.draw = function() {
