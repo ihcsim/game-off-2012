@@ -2,12 +2,12 @@ $(document).ready(function(){
   var isPlaying = false;
   var requestAnimationFrame = null;
   
-  var numBullets = 10;
+  var numBullets = 12;
   var shots = new Array();
   var player = initPlayerWithBullets(numBullets);
   var obstacles = initObstacles();
   
-  var numEnemies = 1;
+  var numEnemies = 8;
   var enemies = initEnemies(numEnemies);
   initEnemiesRespawnEngine(enemies);
   setUpGarbageCollectionTicker();
