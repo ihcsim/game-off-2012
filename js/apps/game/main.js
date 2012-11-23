@@ -7,11 +7,14 @@ $(document).ready(function(){
   var player = initPlayerWithBullets(numBullets);
   var obstacles = initObstacles();
   
-  var numEnemies = 8;
+  var numEnemies = 5;
   var enemies = initEnemies(numEnemies);
   initEnemiesRespawnEngine(enemies);
   setUpGarbageCollectionTicker();
   setUpRespawnTicker();
+  
+  initEnemiesCloneEngine(enemies);
+  setUpCloneTicker();
   
   var gameDuration = 10000;
   var timer = initTimer(gameDuration);

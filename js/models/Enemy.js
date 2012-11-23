@@ -142,7 +142,7 @@ Enemy = function(spriteSrc){
   
   this.clone = function(){
     var clone = initEnemy();
-    clone.currentPosition = new Coordinates(this.currentPosition.posX, this.currentPosition.posY);
+    clone.currentPosition = new Coordinates(this.currentPosition.posX + 5, this.currentPosition.posY + 5);
     return clone;
   };
 

@@ -17,10 +17,10 @@ test("Enemy - Clone's image file", function() {
 
 test("Enemy - Clone's current position x-coordinate", function() {
   var clone = enemy.clone(); 
-  ok(clone.currentPosition.posX == enemy.currentPosition.posX, "Clone enemy's current position x-coordinate is different from parent");
+  ok(clone.currentPosition.posX == enemy.currentPosition.posX + 5, "Clone enemy's current position x-coordinate is different from parent");
 });
 
 test("Enemy - Clone's current position y-coordinate", function() {
   var clone = enemy.clone(); 
-  ok(clone.currentPosition.posY == enemy.currentPosition.posY, "Clone enemy's current position y-coordinate is different from parent");
+  ok(clone.currentPosition.posY == enemy.currentPosition.posY + 5, "Clone enemy's current position y-coordinate is different from parent");
 });
