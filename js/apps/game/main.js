@@ -10,9 +10,8 @@ $(document).ready(function(){
   var numEnemies = 5;
   var enemies = initEnemies(numEnemies);
   initEnemiesRespawnEngine(enemies);
-  setUpGarbageCollectionTicker();
-  setUpRespawnTicker();
- 
+  initGarbageCollector(enemies);
+   
   initEnemiesCloneEngine(enemies);
   setUpCloneTicker();
   
