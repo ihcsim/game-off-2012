@@ -13,13 +13,17 @@ function setUpCloneTicker(){
 }
 
 function cloneEnemies(){
-  if(activeEnemies >= maxNumEnemies)
+  if(hasReachedMaxNumEnemiesAllowed)
     return;
     
   $.each(activeEnemies, function(index, enemy){
     if(!enemy.isDead() && isClonePeriod()) 
       activeEnemies.push(cloneEnemy(enemy));
   });
+}
+
+function hasReachedMaxNumEnemiesAllowed(){
+  return (activeEnemies.length >= maxNumEnemies);
 }
 
 function cloneEnemy(enemy){
