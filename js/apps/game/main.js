@@ -1,22 +1,22 @@
 $(document).ready(function(){
+  var STARTING_NUM_BULLETS = 5;
+  var STARTING_NUM_ENEMIES = 6;
+  var MAX_NUM_ENEMIES_PER_ROUND = 20;
+  var ROUND_DURATION = 30000;
+  
   var isPlaying = false;
   var requestAnimationFrame = null;
   
-  var numBullets = 12;
   var shots = new Array();
-  var player = initPlayerWithBullets(numBullets);
+  var player = initPlayerWithBullets(STARTING_NUM_BULLETS);
   var obstacles = initObstacles();
   
-  var numEnemies = 5;
-  var enemies = initEnemies(numEnemies);
+  var enemies = initEnemies(STARTING_NUM_ENEMIES);
   initEnemiesRespawnEngine(enemies);
   initGarbageCollector(enemies);
-   
-  initEnemiesCloneEngine(enemies);
-  setUpCloneTicker();
+  initEnemiesCloneEngine(enemies, MAX_NUM_ENEMIES_PER_ROUND);
   
-  var gameDuration = 10000;
-  var timer = initTimer(gameDuration);
+  var timer = initTimer(ROUND_DURATION);
   
   var stage = initStage();
   if(stage.isReady() && player.isReady())
