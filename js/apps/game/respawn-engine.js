@@ -20,10 +20,7 @@ function respawnEnemies(){
 }
 
 function respawnCount(){
-  var respawnCount = maxNumActiveEnemies - activeEnemies.length;
-  if(respawnCount < 0)
-    return 0;
-  return respawnCount;
+  return maxNumActiveEnemies - activeEnemies.length;
 }
 
 function numActiveEnemies(){
