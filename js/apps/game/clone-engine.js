@@ -13,7 +13,7 @@ function setUpCloneTicker(){
 }
 
 function cloneEnemies(){
-  if(hasReachedMaxNumEnemiesAllowed)
+  if(hasReachedMaxNumEnemiesAllowed())
     return;
     
   $.each(activeEnemies, function(index, enemy){
