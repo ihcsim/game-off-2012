@@ -1,8 +1,11 @@
 var CLONE_INTERVAL_MS = 8000;
 
 var activeEnemies = new Array();
-function initEnemiesCloneEngine(enemies){
+var maxNumEnemies = 0;
+function initEnemiesCloneEngine(enemies, maxNumEnemiesPerRound){
   activeEnemies = enemies;
+  setUpCloneTicker();
+  maxNumEnemies = maxNumEnemiesPerRound;
 }
 
 function setUpCloneTicker(){
@@ -10,15 +13,22 @@ function setUpCloneTicker(){
 }
 
 function cloneEnemies(){
+  if(activeEnemies >= maxNumEnemies)
+    return;
+    
   $.each(activeEnemies, function(index, enemy){
-    var randNum = rand(0, 10);
-    if(randNum >= 5) {
-      var clone = cloneEnemy(enemy);
-      activeEnemies.push(clone);
-    }
+    if(!enemy.isDead() && isClonePeriod()) 
+      activeEnemies.push(cloneEnemy(enemy));
   });
 }
 
 function cloneEnemy(enemy){
   return enemy.clone();
+}
+
+function isClonePeriod(){
+  var randNum = rand(0, 10);
+  if(randNum >= 5)
+    return true;
+  return false;
 }
