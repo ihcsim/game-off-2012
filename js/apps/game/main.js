@@ -2,7 +2,7 @@ $(document).ready(function(){
   var STARTING_NUM_BULLETS = 5;
   var STARTING_NUM_ENEMIES = 6;
   var MAX_NUM_ENEMIES_PER_ROUND = 20;
-  var ROUND_DURATION = 30000;
+  var ROUND_DURATION = 20000;
   
   var isPlaying = false;
   var requestAnimationFrame = null;
@@ -42,8 +42,10 @@ $(document).ready(function(){
   }
   
   function loop(){
-    if(timeIsUp())
-      calculateScore(totalKillCount());
+    if(timeIsUp()) {
+      viewTotalScore();
+      resetTotalScore();
+    }
     
     if(isPlaying) {
       updateWorld();
