@@ -1,12 +1,12 @@
 @CHARSET "ISO-8859-1";
 
 body {
-  background: #202020;
+  background:#202020;
 }
 
 
 canvas {
-  display: block;
+  display:block;
 }
 
 
@@ -16,7 +16,7 @@ canvas {
 
 
 #overlapping canvas {
-  margin: -600px 0 0;
+  margin:-600px 0 0;
 }
 
 #score-box{
