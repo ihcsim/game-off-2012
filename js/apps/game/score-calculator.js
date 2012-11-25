@@ -4,7 +4,7 @@ var scoreDOM = $("#score");
 
 function incrementScore(){
   totalScore += SCORE_PER_KILL;
-  scoreDOM.text(totalScore);
+  updateScoreBox_ScoreValue(totalScore);
 }
 
 function viewTotalScore(){

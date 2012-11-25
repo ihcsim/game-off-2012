@@ -93,6 +93,7 @@ Player = function(spriteSrc, initNumBullets){
   this.reloadAllBullets = function(){
     for(var index = 0; index < maxNumBullets; index++)
       bullets.push(initBullet(this));
+    updateScoreBox_BulletCount(player.numBullets());
   };
 
   var currentBullet = -1;
@@ -112,6 +113,7 @@ Player = function(spriteSrc, initNumBullets){
     currentBullet++;
     var activeBullet = bullets.shift();
     activeBullet.activate();
+    updateScoreBox_BulletCount(player.numBullets());
     return activeBullet;
   };
   
