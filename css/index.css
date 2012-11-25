@@ -18,3 +18,17 @@ canvas {
 #overlapping canvas {
   margin: -600px 0 0;
 }
+
+#score-box{
+  width:200px;
+  height:50px;
+  border:1px solid lightgray;
+  color:white;
+  padding:2px;
+  margin-left:594px;
+}
+
+label{
+  float:left;
+  margin-right:5px;
+}
