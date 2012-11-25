@@ -6,3 +6,12 @@ function initKeyboardEventHandler(player){
     player.haltAction(e);
   });
 }
+
+function initEnemyDiedEventHandler(){
+  $(document).bind("enemyDiedEvent", incrementScore);
+}
+
+function triggerScoreCalculationOnEnemyDiedEvent(){
+  var event  = jQuery.Event("enemyDiedEvent");
+  $(document).trigger(event);
+}

@@ -129,6 +129,7 @@ Enemy = function(spriteSrc){
     clearInterval(this.moveInterval);
     this.srcX = 185;
     isDead = true;
+    triggerScoreCalculationOnEnemyDiedEvent();
   };
 
   function playSoundEffect(){
