@@ -25,6 +25,7 @@ $(document).ready(function(){
   function initGame(){
     isPlaying = true;
     initKeyboardEventHandler(player);
+    initEnemyDiedEventHandler();
     requestAnimationFrame = initRequestAnimationFrame();
     requestAnimationFrame(loop);
   }
