@@ -91,7 +91,8 @@ Player = function(spriteSrc, initNumBullets){
   var maxNumBullets = initNumBullets;
   var bullets = new Array();
   this.reloadAllBullets = function(){
-    for(var index = 0; index < maxNumBullets; index++)
+    var numBulletsToBeReloaded = maxNumBullets - bullets.length;
+    for(var index = 0; index < numBulletsToBeReloaded; index++)
       bullets.push(initBullet(this));
     updateScoreBox_BulletCount(player.numBullets());
   };

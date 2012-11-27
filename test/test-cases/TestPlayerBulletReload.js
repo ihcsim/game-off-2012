@@ -45,3 +45,14 @@ test("Player/Bullet Reload- Player has 5 bullets on full re-load", function() {
   player.reloadAllBullets();
   ok(player.numBullets() == 5, "Player should have 5 bullets on full re-load");
 });
+
+test("Player/Bullet Reload- Reload should be idempotent", function() {
+  var numBullets = 5;
+  var player = initPlayerWithBullets(numBullets);
+  for(var index = 0; index < numBullets; index++)
+    player.fireBullet();
+  player.reloadAllBullets();
+  player.reloadAllBullets();
+  player.reloadAllBullets();
+  ok(player.numBullets() == 5, "Player should have only 5 bullets even on multiple re-loads");
+});
