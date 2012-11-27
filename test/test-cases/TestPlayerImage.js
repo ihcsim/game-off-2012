@@ -24,7 +24,7 @@ test("Player - Sprite image width is 40", function() {
   ok(player.dimension.width == expectedWidth, "Sprite image width isn't 40");
 });
 
-test("Player - Sprite image height is 56", function() {
-  var expectedHeight = 56;
-  ok(player.dimension.height == expectedHeight, "Sprite image height isn't 56");
+test("Player - Sprite image height is 58", function() {
+  var expectedHeight = 58;
+  ok(player.dimension.height == expectedHeight, "Sprite image height isn't 58");
 });

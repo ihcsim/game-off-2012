@@ -2,7 +2,7 @@ Player = function(spriteSrc, initNumBullets){
   var DEFAULT_SPRITE_POS_X = 0;
   var DEFAULT_SPRITE_POS_Y = 4;
   var DEFAULT_PLAYER_WIDTH = 40;
-  var DEFAULT_PLAYER_HEIGHT = 56;
+  var DEFAULT_PLAYER_HEIGHT = 58;
   var DEFAULT_START_POS_X = 400;
   var DEFAULT_START_POS_Y = 300;
   var DEFAULT_SPEED = 2; // pixels
@@ -62,6 +62,8 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnNorth = function(){
     currentDirection = direction.NORTH;
+    this.srcX = 0;
+    this.srcY = 192;
   };
 
   this.isFacingSouth = function(){
@@ -70,6 +72,8 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnSouth = function(){
     currentDirection = direction.SOUTH;
+    this.srcX = 0;
+    this.srcY = 4;
   };
 
   this.isFacingEast = function(){
@@ -78,6 +82,8 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnEast = function(){
     currentDirection = direction.EAST;
+    this.srcX = 0;
+    this.srcY = 132;
   };
 
   this.isFacingWest = function(){
@@ -86,6 +92,8 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnWest = function(){
     currentDirection = direction.WEST;
+    this.srcX = 0;
+    this.srcY = 67;
   };
   
   var maxNumBullets = initNumBullets;
@@ -163,22 +171,18 @@ Player = function(spriteSrc, initNumBullets){
     if (this.isFacingNorth()) {
         newPosY = this.currentPosition.posY - speed;
         newPosX = this.currentPosition.posX;
-        this.srcX = 35;
     } 
     else if (this.isFacingSouth()) {
         newPosY = this.currentPosition.posY + speed;
         newPosX = this.currentPosition.posX;
-        this.srcX = 0;
     } 
     else if (this.isFacingEast()) {
         newPosX = this.currentPosition.posX + speed;
         newPosY = this.currentPosition.posY;
-        this.srcX = 105;
     } 
     else if (this.isFacingWest()) {
         newPosX = this.currentPosition.posX - speed;
         newPosY = this.currentPosition.posY;
-        this.srcX = 70;
     }
 
     this.newPosition= new Coordinates(newPosX, newPosY);
