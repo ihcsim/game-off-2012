@@ -1,10 +1,11 @@
 var SPRITE_IMG_SRC = "images/sprite.png";
+var PLAYER_SPIRTE_IMAGE_SRC = "images/player-v2.png";
 function initStage(){
   return new Stage(SPRITE_IMG_SRC);
 }
 
 function initPlayer(maxNumBullets){
-  return new Player(SPRITE_IMG_SRC, maxNumBullets);
+  return new Player(PLAYER_SPIRTE_IMAGE_SRC, maxNumBullets);
 }
 
 function initPlayerWithBullets(numBullets){
