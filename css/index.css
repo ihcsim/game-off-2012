@@ -20,12 +20,12 @@ canvas {
 }
 
 #score-box{
-  width:430px;
+  width:300px;
   height:50px;
   border:1px solid lightgray;
   color:white;
   padding:2px;
-  margin-left:365px;
+  margin-left:495px;
 }
 
 label{
