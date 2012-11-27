@@ -1,6 +1,6 @@
 ## Introduction
 
-This is my first attempt to create a 2D ["brawler"] (http://en.wikipedia.org/wiki/Beat_'em_up) game using strictly HTML5 and JavaScript. While the graphic and audio files are borrowed (with permission) from an online [course](http://www.udemy.com/create-a-html5-game-from-scratch/) I took, all the JQuery and Qunit codes are mine.
+This is my first attempt to create a 2D ["brawler"] (http://en.wikipedia.org/wiki/Beat_'em_up) game using strictly HTML5 and JavaScript. While the graphic and audio files are borrowed (with permission) from an online [course](http://www.udemy.com/create-a-html5-game-from-scratch/) I took, all the JQuery and QUnit codes are mine. To play, go to [](http://games.ivansim.ca/games-off-2012/).
 
 ## Plot
 
@@ -25,7 +25,7 @@ Coming soon!
 
 ## License
 
-With the exception of the image and audio files, all HTML, CSS, JavaScript, JQuery, QUnit codes are free for re-use and modification. For permission to re-use image and audio files, contact [Pablo Farias Navarro](http://www.udemy.com/u/pablofariasnavarro/).
+With the exception of the image and audio files, all HTML, CSS, JavaScript, JQuery, QUnit codes are free for re-use and modification. For permission to re-use image and audio files, contact [Pablo Farias Navarro](http://www.udemy.com/u/pablofariasnavarro/). Character sprite images are from ()[http://untamed.wild-refuge.net/rmxpresources.php?characters].
 
 ## GitHub Game Off, 2012
 
