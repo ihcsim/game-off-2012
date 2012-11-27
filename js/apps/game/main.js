@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var STARTING_NUM_BULLETS = 10;
+  var STARTING_NUM_BULLETS = 11;
   var STARTING_NUM_ENEMIES = 10;
   var MAX_NUM_ENEMIES_PER_ROUND = 20;
   var ROUND_DURATION = 20000;
