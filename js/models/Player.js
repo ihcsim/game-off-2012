@@ -6,11 +6,12 @@ Player = function(spriteSrc, initNumBullets){
   var DEFAULT_START_POS_X = 400;
   var DEFAULT_START_POS_Y = 300;
   var DEFAULT_SPEED = 2; // pixels
-  
-  this.srcX = DEFAULT_SPRITE_POS_X;
-  this.srcY = DEFAULT_SPRITE_POS_Y;
-  
+
+  this.spriteCoords = new Coordinates(DEFAULT_SPRITE_POS_X, DEFAULT_SPRITE_POS_Y);
   this.dimension = new Dimension(DEFAULT_PLAYER_WIDTH, DEFAULT_PLAYER_HEIGHT);
+  
+  this.image = new SpriteImage(this.spriteCoords, this.dimension);
+  
   this.currentPosition = new Coordinates(DEFAULT_START_POS_X, DEFAULT_START_POS_Y);
   this.calculateCenterCoordinates = function(){
     return calculateCenterCoordinates(this.currentPosition, this.dimension);
@@ -62,8 +63,7 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnNorth = function(){
     currentDirection = direction.NORTH;
-    this.srcX = 0;
-    this.srcY = 192;
+    renderPlayerFaceNorth(this);
   };
 
   this.isFacingSouth = function(){
@@ -72,8 +72,7 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnSouth = function(){
     currentDirection = direction.SOUTH;
-    this.srcX = 0;
-    this.srcY = 4;
+    renderPlayerFaceSouth(this);
   };
 
   this.isFacingEast = function(){
@@ -82,8 +81,7 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnEast = function(){
     currentDirection = direction.EAST;
-    this.srcX = 0;
-    this.srcY = 132;
+    renderPlayerFaceEast(this);
   };
 
   this.isFacingWest = function(){
@@ -92,8 +90,7 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnWest = function(){
     currentDirection = direction.WEST;
-    this.srcX = 0;
-    this.srcY = 67;
+    renderPlayerFaceWest(this);
   };
   
   var maxNumBullets = initNumBullets;
@@ -197,7 +194,7 @@ Player = function(spriteSrc, initNumBullets){
     var stageCanvasCtx = stageCanvas[0].getContext("2d");
     stageCanvasCtx.drawImage(
         this.sprite, 
-        this.srcX, this.srcY, 
+        this.image.src.posX, this.image.src.posY, 
         this.dimension.width, this.dimension.height, 
         this.currentPosition.posX, this.currentPosition.posY, 
         this.dimension.width, this.dimension.height);

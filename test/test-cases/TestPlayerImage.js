@@ -11,12 +11,12 @@ test("Player - Sprite image file path matches", function() {
 
 test("Player - Sprite image file x-coordinate is 0", function() {
   var expectedSrcXCoordinate = 0;
-  ok(player.srcX == expectedSrcXCoordinate, "Sprite image file x-coordinate isn't 0");
+  ok(player.image.src.posX == expectedSrcXCoordinate, "Sprite image file x-coordinate isn't 0");
 });
 
 test("Player - Sprite image file y-coordinate is 4", function() {
   var expectedSrcYCoordinate = 4;
-  ok(player.srcY == expectedSrcYCoordinate, "Sprite image file y-coordinate isn't 4");
+  ok(player.image.src.posY == expectedSrcYCoordinate, "Sprite image file y-coordinate isn't 4");
 });
 
 test("Player - Sprite image width is 40", function() {
