@@ -1,8 +1,8 @@
 Player = function(spriteSrc, initNumBullets){
   var DEFAULT_SPRITE_POS_X = 0;
-  var DEFAULT_SPRITE_POS_Y = 600;
-  var DEFAULT_PLAYER_WIDTH = 35;
-  var DEFAULT_PLAYER_HEIGHT = 54;
+  var DEFAULT_SPRITE_POS_Y = 4;
+  var DEFAULT_PLAYER_WIDTH = 40;
+  var DEFAULT_PLAYER_HEIGHT = 56;
   var DEFAULT_START_POS_X = 400;
   var DEFAULT_START_POS_Y = 300;
   var DEFAULT_SPEED = 2; // pixels
