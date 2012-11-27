@@ -7,5 +7,5 @@ function updateScoreBox_ScoreValue(score){
 function updateScoreBox_BulletCount(numBullets){
   bulletDOM.empty();
   for(var index = 0; index < numBullets; index++)
-    bulletDOM.append("<span class='bullet-entry'>1</span>");
+    bulletDOM.append("<span class='bullet-entry'><img src='images/bullet.jpg'/></span>");
 }
