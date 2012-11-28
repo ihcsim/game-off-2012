@@ -1,47 +1,47 @@
-function playerFacingSouth_Stationary(){
+function playerFacingSouth_StationaryImageCoordinates(){
   return new Coordinates(0,6);
 }
 
-function playerMovingSouth_LeftAdvance(){
+function playerMovingSouth_LeftAdvanceImageCoordinates(){
   return new Coordinates(44,6);
 }
 
-function playerMovingSouth_RightAdvance(){
+function playerMovingSouth_RightAdvanceImageCoordinates(){
   return new Coordinates(126,6);
 }
 
-function playerFacingNorth_Stationary(){
+function playerFacingNorth_StationaryImageCoordinates(){
   return new Coordinates(0,192);
 }
 
-function playerMovingNorth_LeftAdvance(){
+function playerMovingNorth_LeftAdvanceImageCoordinates(){
   return new Coordinates(44,192);
 }
 
-function playerMovingNorth_RightAdvance(){
+function playerMovingNorth_RightAdvanceImageCoordinates(){
   return new Coordinates(126,192);
 }
 
-function playerFacingEast_Stationary(){
+function playerFacingEast_StationaryImageCoordinates(){
   return new Coordinates(0,132);
 }
 
-function playerMovingEast_LeftAdvance(){
+function playerMovingEast_LeftAdvanceImageCoordinates(){
   return new Coordinates(44,132);
 }
 
-function playerMovingEast_RightAdvance(){
+function playerMovingEast_RightAdvanceImageCoordinates(){
   return new Coordinates(126,132);
 }
 
-function playerFacingWest_Stationary(){
+function playerFacingWest_StationaryImageCoordinates(){
   return new Coordinates(0,67);
 }
 
-function playerMovingWest_LeftAdvance(){
+function playerMovingWest_LeftAdvanceImageCoordinates(){
   return new Coordinates(44,67);
 }
 
-function playerMovingWest_RightAdvance(){
+function playerMovingWest_RightAdvanceImageCoordinates(){
   return new Coordinates(126,67);
 }
