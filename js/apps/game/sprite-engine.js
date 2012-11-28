@@ -2,38 +2,130 @@ var DEFAULT_PLAYER_WIDTH = 40;
 var DEFAULT_PLAYER_HEIGHT = 58;
 var DEFAULT_DIMENSION = new Dimension(DEFAULT_PLAYER_WIDTH, DEFAULT_PLAYER_HEIGHT);
   
-function renderPlayerFaceSouth(player){
-  player.image = createPlayerImageFaceSouth();
+function renderPlayerMoveSouth(player){
+  if(!player.isInMotion()) {
+    player.image = createPlayerImageFacingSouth();
+    return;
+  }
+  
+  var newImage = createPlayerImageMoveSouth();
+  if(newImage)
+    player.image = newImage;
 }
 
-function createPlayerImageFaceSouth(){
-  var spriteCoords = new Coordinates(0,4);
-  return new SpriteImage(spriteCoords, DEFAULT_DIMENSION);
+function createPlayerImageFacingSouth(){
+  return new SpriteImage(playerFacingSouth_Stationary(), DEFAULT_DIMENSION);
 }
 
-function renderPlayerFaceNorth(player){
-  player.image = createPlayerImageFaceNorth();
+var moveSouthFrameIndex = 0;
+function createPlayerImageMoveSouth(){
+  if(moveSouthFrameIndex == 0) {
+    moveSouthFrameIndex += 1;
+    return new SpriteImage(playerMovingSouth_LeftAdvance(), DEFAULT_DIMENSION);
+  }
+  else if(moveSouthFrameIndex == 5){
+    moveSouthFrameIndex += 1;
+    return new SpriteImage(playerMovingSouth_RightAdvance(), DEFAULT_DIMENSION);
+  }
+  else if(moveSouthFrameIndex == 10) {
+    moveSouthFrameIndex = 0;
+    return new SpriteImage(playerMovingSouth_LeftAdvance(), DEFAULT_DIMENSION);
+  }
+  moveSouthFrameIndex+= 1;
 }
 
-function createPlayerImageFaceNorth(){
-  var spriteCoords = new Coordinates(0,192);
-  return new SpriteImage(spriteCoords, DEFAULT_DIMENSION);
+function renderPlayerMoveNorth(player){
+  if(!player.isInMotion()) {
+    player.image = createPlayerImageFacingNorth();
+    return;
+  }
+  
+  var newImage = createPlayerImageMoveNorth();
+  if(newImage)
+    player.image = newImage;
 }
 
-function renderPlayerFaceEast(player){
-  player.image = createPlayerImageFaceEast();
+function createPlayerImageFacingNorth(){
+  return new SpriteImage(playerFacingNorth_Stationary(), DEFAULT_DIMENSION);
 }
 
-function createPlayerImageFaceEast(){
-  var spriteCoords = new Coordinates(0,132);
-  return new SpriteImage(spriteCoords, DEFAULT_DIMENSION);
+var moveNorthFrameIndex = 0;
+function createPlayerImageMoveNorth(){
+  if(moveNorthFrameIndex == 0) {
+    moveNorthFrameIndex += 1;
+    return new SpriteImage(playerMovingNorth_LeftAdvance(), DEFAULT_DIMENSION);
+  }
+  else if(moveNorthFrameIndex == 5){
+    moveNorthFrameIndex += 1;
+    return new SpriteImage(playerMovingNorth_RightAdvance(), DEFAULT_DIMENSION);
+  }
+  else if(moveNorthFrameIndex == 10) {
+    moveNorthFrameIndex = 0;
+    return new SpriteImage(playerMovingNorth_LeftAdvance(), DEFAULT_DIMENSION);
+  }
+  moveNorthFrameIndex+= 1;
 }
 
-function renderPlayerFaceWest(player){
-  player.image = createPlayerImageFaceWest();
+function renderPlayerMoveEast(player){
+  if(!player.isInMotion()) {
+    player.image = createPlayerImageFacingEast();
+    return;
+  }
+  
+  var newImage = createPlayerImageMoveEast();
+  if(newImage)
+    player.image = newImage;
 }
 
-function createPlayerImageFaceWest(){
-  var spriteCoords = new Coordinates(0,67);
-  return new SpriteImage(spriteCoords, DEFAULT_DIMENSION);
+function createPlayerImageFacingEast(){
+  return new SpriteImage(playerFacingEast_Stationary(), DEFAULT_DIMENSION);
+}
+
+var moveEastFrameIndex = 0;
+function createPlayerImageMoveEast(){
+  if(moveEastFrameIndex == 0) {
+    moveEastFrameIndex += 1;
+    return new SpriteImage(playerMovingEast_LeftAdvance(), DEFAULT_DIMENSION);
+  }
+  else if(moveEastFrameIndex == 5){
+    moveEastFrameIndex += 1;
+    return new SpriteImage(playerMovingEast_RightAdvance(), DEFAULT_DIMENSION);
+  }
+  else if(moveEastFrameIndex == 10) {
+    moveEastFrameIndex = 0;
+    return new SpriteImage(playerMovingEast_LeftAdvance(), DEFAULT_DIMENSION);
+  }
+  moveEastFrameIndex+= 1;
+}
+
+function renderPlayerMoveWest(player){
+  if(!player.isInMotion()) {
+    player.image = createPlayerImageFacingWest();
+    return;
+  }
+  
+  var newImage = createPlayerImageMoveWest();
+  if(newImage)
+    player.image = newImage;
+}
+
+function createPlayerImageFacingWest(){
+  return new SpriteImage(playerFacingWest_Stationary(), DEFAULT_DIMENSION);
+}
+
+var moveWestFrameIndex = 0;
+function createPlayerImageMoveWest(){
+  if(moveWestFrameIndex == 0) {
+    moveWestFrameIndex += 1;
+    return new SpriteImage(playerMovingWest_LeftAdvance(), DEFAULT_DIMENSION);
+  }
+  else if(moveWestFrameIndex == 5){
+    moveWestFrameIndex += 1;
+    return new SpriteImage(playerMovingWest_RightAdvance(), DEFAULT_DIMENSION);
+  }
+  else if(moveWestFrameIndex == 10) {
+    moveWestFrameIndex = 0;
+    return new SpriteImage(playerMovingWest_LeftAdvance(), DEFAULT_DIMENSION);
+  }
+  moveWestFrameIndex+= 1;
 }

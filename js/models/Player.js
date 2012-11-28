@@ -1,6 +1,6 @@
 Player = function(spriteSrc, initNumBullets){
   var DEFAULT_SPRITE_POS_X = 0;
-  var DEFAULT_SPRITE_POS_Y = 4;
+  var DEFAULT_SPRITE_POS_Y = 6;
   var DEFAULT_PLAYER_WIDTH = 40;
   var DEFAULT_PLAYER_HEIGHT = 58;
   var DEFAULT_START_POS_X = 400;
@@ -63,7 +63,7 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnNorth = function(){
     currentDirection = direction.NORTH;
-    renderPlayerFaceNorth(this);
+    renderPlayerMoveNorth(this);
   };
 
   this.isFacingSouth = function(){
@@ -72,7 +72,7 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnSouth = function(){
     currentDirection = direction.SOUTH;
-    renderPlayerFaceSouth(this);
+    renderPlayerMoveSouth(this);
   };
 
   this.isFacingEast = function(){
@@ -81,7 +81,7 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnEast = function(){
     currentDirection = direction.EAST;
-    renderPlayerFaceEast(this);
+    renderPlayerMoveEast(this);
   };
 
   this.isFacingWest = function(){
@@ -90,7 +90,7 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnWest = function(){
     currentDirection = direction.WEST;
-    renderPlayerFaceWest(this);
+    renderPlayerMoveWest(this);
   };
   
   var maxNumBullets = initNumBullets;

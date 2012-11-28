@@ -4,9 +4,9 @@ test("Player - When facing south, image x-coordinate should be 0", function() {
   ok(player.image.src.posX == 0, "Incorrect player image x-coordinate");
 });
 
-test("Player - When facing south, image y-coordinate should be 4", function() {
+test("Player - When facing south, image y-coordinate should be 6", function() {
   player.turnSouth();
-  ok(player.image.src.posY == 4, "Incorrect player image y-coordinate");
+  ok(player.image.src.posY == 6, "Incorrect player image y-coordinate");
 });
 
 test("Player - When facing north, image x-coordinate should be 0", function() {
