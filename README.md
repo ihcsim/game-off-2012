@@ -1,6 +1,6 @@
 ## Introduction
 
-This is my first attempt to create a 2D ["brawler"] (http://en.wikipedia.org/wiki/Beat_'em_up) game using strictly HTML5 and JavaScript. While the graphic and audio files are borrowed (with permission) from an online [course](http://www.udemy.com/create-a-html5-game-from-scratch/) I took, all the JQuery and QUnit codes are mine. To play, go to [http://games.ivansim.ca/game-off-2012/](http://games.ivansim.ca/game-off-2012/).
+This is my first attempt to create a 2D ["brawler"] (http://en.wikipedia.org/wiki/Beat_'em_up) game using HTML5, JavaScript and WebGL. While the graphic and audio files are borrowed (with permission) from an online [course](http://www.udemy.com/create-a-html5-game-from-scratch/) I took, all the JQuery and QUnit codes are mine. To play, go to [http://games.ivansim.ca/game-off-2012/](http://games.ivansim.ca/game-off-2012/).
 
 ## Plot
 
