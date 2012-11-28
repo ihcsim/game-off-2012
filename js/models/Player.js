@@ -63,7 +63,6 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnNorth = function(){
     currentDirection = direction.NORTH;
-    renderPlayerMoveNorth(this);
   };
 
   this.isFacingSouth = function(){
@@ -72,7 +71,6 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnSouth = function(){
     currentDirection = direction.SOUTH;
-    renderPlayerMoveSouth(this);
   };
 
   this.isFacingEast = function(){
@@ -81,7 +79,6 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnEast = function(){
     currentDirection = direction.EAST;
-    renderPlayerMoveEast(this);
   };
 
   this.isFacingWest = function(){
@@ -90,7 +87,6 @@ Player = function(spriteSrc, initNumBullets){
   
   this.turnWest = function(){
     currentDirection = direction.WEST;
-    renderPlayerMoveWest(this);
   };
   
   var maxNumBullets = initNumBullets;

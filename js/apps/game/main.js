@@ -15,6 +15,7 @@ $(document).ready(function(){
   initEnemiesRespawnEngine(enemies);
   initGarbageCollector(enemies);
   initEnemiesCloneEngine(enemies, MAX_NUM_ENEMIES_PER_ROUND);
+  initPlayerAnimationEngine(player);
   
   var timer = initTimer(ROUND_DURATION);
   
