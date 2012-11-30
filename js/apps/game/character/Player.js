@@ -185,9 +185,9 @@ Player = function(spriteSrc, initNumBullets){
     this.currentPosition = new Coordinates(this.newPosition.posX, this.newPosition.posY);
   };
   
-  var stageCanvas = $("#stage-canvas");
-  var stageCanvasCtx = stageCanvas[0].getContext("2d");
   this.draw = function(){
+    var stageCanvas = $("#stage-canvas");
+    var stageCanvasCtx = stageCanvas[0].getContext("2d");
     stageCanvasCtx.drawImage(
         this.sprite, 
         this.image.src.posX, this.image.src.posY, 

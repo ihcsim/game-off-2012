@@ -147,9 +147,9 @@ Enemy = function(spriteSrc){
     return clone;
   };
 
-  var stageCanvas = $("#stage-canvas");
-  var stageCanvasCtx = stageCanvas[0].getContext("2d");  
   this.draw = function() {
+    var stageCanvas = $("#stage-canvas");
+    var stageCanvasCtx = stageCanvas[0].getContext("2d");  
     stageCanvasCtx.drawImage(this.sprite, 
         this.srcX, this.srcY, 
         this.dimension.width, this.dimension.height, 
@@ -158,6 +158,8 @@ Enemy = function(spriteSrc){
   };
   
   this.clear = function(){
+    var stageCanvas = $("#stage-canvas");
+    var stageCanvasCtx = stageCanvas[0].getContext("2d");  
     stageCanvasCtx.clearRect(
         this.currentPosition.posX, this.currentPosition.posY, 
         this.dimension.width, this.dimension.height);
