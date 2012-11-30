@@ -1,6 +1,8 @@
 ## Introduction
 
-This is my first attempt to create a 2D ["brawler"] (http://en.wikipedia.org/wiki/Beat_'em_up) game using HTML5, JavaScript and WebGL. While the graphic and audio files are borrowed (with permission) from an online [course](http://www.udemy.com/create-a-html5-game-from-scratch/) I took, all the JQuery and QUnit codes are mine. To play, go to [http://games.ivansim.ca/game-off-2012/](http://games.ivansim.ca/game-off-2012/).
+This is my first attempt to create a 2D ["brawler"] (http://en.wikipedia.org/wiki/Beat_'em_up) game using HTML5, JavaScript and WebGL. While the graphic and audio files are borrowed (with permission) from an online [course](http://www.udemy.com/create-a-html5-game-from-scratch/) I took, all the JQuery and QUnit codes are mine. Refer *License* section below.
+
+To play, go to [http://games.ivansim.ca/game-off-2012/](http://games.ivansim.ca/game-off-2012/).
 
 ## Plot
 
@@ -26,10 +28,20 @@ Find me on [Twitter] (https://twitter.com/IvanHCSim)
 ## Known Issues
 
 * Timer is not fully implemented
+* Latency in player's movement caused by sudden, sharp change in direction
+* Enemy's jerky stationary image
+
+## Coming Soon
+
+* Player's health
+* Update enemy with attacking capability
+* Fix timer
+* Cure enemy's seizure (jerky image)
+* Improve scorebox and help UI
 
 ## License
 
-With the exception of the image and audio files, all HTML, CSS, JavaScript, JQuery, QUnit codes are free for re-use and modification. For permission to re-use image and audio files, contact [Pablo Farias Navarro](http://www.udemy.com/u/pablofariasnavarro/). Character sprite images are from [http://untamed.wild-refuge.net/rmxpresources.php?characters](http://untamed.wild-refuge.net/rmxpresources.php?characters).
+With the exception of the image and audio files, all HTML, CSS, JavaScript, JQuery, QUnit codes are free for re-use and modification *after Dec 1, 2012 after GitHub Game-Off 2012 is over*. For permission to re-use image and audio files, contact [Pablo Farias Navarro](http://www.udemy.com/u/pablofariasnavarro/). Character sprite images are from [http://untamed.wild-refuge.net/rmxpresources.php?characters](http://untamed.wild-refuge.net/rmxpresources.php?characters).
 
 ## GitHub Game Off, 2012
 
