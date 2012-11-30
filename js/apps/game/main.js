@@ -78,8 +78,7 @@ $(document).ready(function(){
       if(!playerIsOutOfBounds(player) && !playerWillCollideWithObstacles(player, obstacles))
         player.commitPosition();
     }
-    
-    if(player.isAttacking()) {
+    else if(player.isAttacking()) {
       var shot = player.fireBullet();
       if(shot)
         shots.push(shot);
