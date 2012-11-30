@@ -21,7 +21,7 @@ Find me on [Twitter] (https://twitter.com/IvanHCSim)
 
 ## Screenshots
 
-<img src="http://instagram.com/p/SpHvDYmIEy/" style="border:0;" />
+<img src="http://distilleryimage6.instagram.com/9444692a3ab111e282e122000a1f9aae_7.jpg" style="border:0;">
 
 ## Known Issues
 
