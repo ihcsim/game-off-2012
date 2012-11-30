@@ -37,7 +37,7 @@ Find me on [Twitter] (https://twitter.com/IvanHCSim)
 * Update enemy with attacking capability
 * Fix timer
 * Cure enemy's seizure (jerky image)
-* Improve scorebox and help UI
+* Improve scorebox and 'help' UI
 
 ## License
 
