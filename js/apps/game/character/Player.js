@@ -130,21 +130,21 @@ Player = function(spriteSrc, initNumBullets){
       this.turnNorth();
       this.move();
     }
-    else if(keyID == 40) {// down
+    if(keyID == 40) {// down
       this.turnSouth();
       this.move();
     }
-    else if(keyID == 39) {// right
+    if(keyID == 39) {// right
       this.turnEast();
       this.move();
     }
-    else if(keyID == 37) {// left
+    if(keyID == 37) {// left
       this.turnWest();
       this.move();
     }
-    else if(keyID == 32)
+    if(keyID == 32)
       this.attack();
-    else if(keyID == 82)
+    if(keyID == 82)
       this.reloadAllBullets();
   };
 
@@ -162,20 +162,20 @@ Player = function(spriteSrc, initNumBullets){
     var newPosX = null;
     var newPosY = null;
     if (this.isFacingNorth()) {
-        newPosY = this.currentPosition.posY - speed;
-        newPosX = this.currentPosition.posX;
+      newPosY = this.currentPosition.posY - speed;
+      newPosX = this.currentPosition.posX;
     } 
     else if (this.isFacingSouth()) {
-        newPosY = this.currentPosition.posY + speed;
-        newPosX = this.currentPosition.posX;
+      newPosY = this.currentPosition.posY + speed;
+      newPosX = this.currentPosition.posX;
     } 
     else if (this.isFacingEast()) {
-        newPosX = this.currentPosition.posX + speed;
-        newPosY = this.currentPosition.posY;
+      newPosX = this.currentPosition.posX + speed;
+      newPosY = this.currentPosition.posY;
     } 
     else if (this.isFacingWest()) {
-        newPosX = this.currentPosition.posX - speed;
-        newPosY = this.currentPosition.posY;
+      newPosX = this.currentPosition.posX - speed;
+      newPosY = this.currentPosition.posY;
     }
 
     this.newPosition= new Coordinates(newPosX, newPosY);
@@ -185,9 +185,9 @@ Player = function(spriteSrc, initNumBullets){
     this.currentPosition = new Coordinates(this.newPosition.posX, this.newPosition.posY);
   };
   
+  var stageCanvas = $("#stage-canvas");
+  var stageCanvasCtx = stageCanvas[0].getContext("2d");
   this.draw = function(){
-    var stageCanvas = $("#stage-canvas");
-    var stageCanvasCtx = stageCanvas[0].getContext("2d");
     stageCanvasCtx.drawImage(
         this.sprite, 
         this.image.src.posX, this.image.src.posY, 
