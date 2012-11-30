@@ -13,7 +13,7 @@ Finding himself lost in a thick jungle on an unfamiliar planet, Aidan is despera
 * Use the directional arrow keys to move the main character.
 * Use the 'R' key to reload bullets.
 * Obstacles like the trees, bushes and rocks will block your path.
-* Your total scores will be calculated and presenetd once the count down expires.
+* Your total scores will be calculated and presented once the timer expires.
 
 ## Questions/Comments/Feedback
 
@@ -22,6 +22,10 @@ Find me on [Twitter] (https://twitter.com/IvanHCSim)
 ## Screenshots
 
 Coming soon!
+
+## Known Issues
+
+* Timer is not fully implemented
 
 ## License
 
